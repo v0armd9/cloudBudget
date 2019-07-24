@@ -12,6 +12,10 @@
 		2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6060D122E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld */; };
 		2C6060D522E7E95B005BD461 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060D422E7E95B005BD461 /* Assets.xcassets */; };
 		2C6060D822E7E95B005BD461 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060D622E7E95B005BD461 /* LaunchScreen.storyboard */; };
+		2CC871E522E7EB86009F90F7 /* MasterBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E422E7EB86009F90F7 /* MasterBudget.swift */; };
+		2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E622E7EC38009F90F7 /* PayPeriod.swift */; };
+		2CC871E922E7EDDE009F90F7 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E822E7EDDE009F90F7 /* Income.swift */; };
+		2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871EA22E7EEBA009F90F7 /* Expense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		2C6060D422E7E95B005BD461 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C6060D722E7E95B005BD461 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6060D922E7E95B005BD461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CC871E422E7EB86009F90F7 /* MasterBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterBudget.swift; sourceTree = "<group>"; };
+		2CC871E622E7EC38009F90F7 /* PayPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPeriod.swift; sourceTree = "<group>"; };
+		2CC871E822E7EDDE009F90F7 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		2CC871EA22E7EEBA009F90F7 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,10 @@
 		2CC871E322E7EA55009F90F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2CC871E422E7EB86009F90F7 /* MasterBudget.swift */,
+				2CC871E622E7EC38009F90F7 /* PayPeriod.swift */,
+				2CC871E822E7EDDE009F90F7 /* Income.swift */,
+				2CC871EA22E7EEBA009F90F7 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,8 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */,
 				2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */,
 				2C6060CB22E7E956005BD461 /* AppDelegate.swift in Sources */,
+				2CC871E522E7EB86009F90F7 /* MasterBudget.swift in Sources */,
+				2CC871E922E7EDDE009F90F7 /* Income.swift in Sources */,
+				2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP48FW2MG5;
-				INFOPLIST_FILE = BudgetPersonalProj/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BudgetPersonalProj/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP48FW2MG5;
-				INFOPLIST_FILE = BudgetPersonalProj/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BudgetPersonalProj/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
