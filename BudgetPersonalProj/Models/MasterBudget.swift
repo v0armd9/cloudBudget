@@ -11,10 +11,14 @@ import Foundation
 class MasterBudget {
     
     var name: String
-    var payperiods: [PayPeriod]
+    var payperiods: [PayPeriod]?
+    var masterExpenseList: [Expense]?
+    var masterIncomeList: [Income]?
     
-    init(name: String, payperiods: [PayPeriod]) {
+    init(name: String, payperiods: [PayPeriod] = [], masterExpenseList: [Expense] = [], masterIncomeList: [Income] = []) {
         self.name = name
         self.payperiods = payperiods
     }
 }
+
+

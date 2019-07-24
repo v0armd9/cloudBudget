@@ -29,19 +29,22 @@
         <!--Budgets-->
         <scene sceneID="16g-Oo-egy">
             <objects>
-                <tableViewController id="y1s-Qb-lxJ" sceneMemberID="viewController">
+                <tableViewController id="y1s-Qb-lxJ" customClass="MasterBudgetListTableViewController" customModule="BudgetPersonalProj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Ru-Rn-8IG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wzq-DZ-mcO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MasterBudgetCell" id="wzq-DZ-mcO">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzq-DZ-mcO" id="vpm-3X-ahr">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="LUu-x4-eBP" kind="show" identifier="toPayPeriodList" id="zOf-lh-UXf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,7 +53,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Budgets" id="nhi-Lb-rNV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Vci-aL-tC2"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Vci-aL-tC2">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="y1s-Qb-lxJ" id="40X-mw-eAy"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="D6p-0H-RbJ"/>
                     </navigationItem>
                 </tableViewController>
@@ -58,11 +65,159 @@
             </objects>
             <point key="canvasLocation" x="-1007" y="173"/>
         </scene>
-        <!--Item-->
+        <!--Title-->
+        <scene sceneID="EV1-XS-IIu">
+            <objects>
+                <tableViewController id="LUu-x4-eBP" customClass="PayPeriodListTableViewController" customModule="BudgetPersonalProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gM4-Nn-CwS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="w54-tT-6G1">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CvG-Ka-mij">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CvG-Ka-mij" id="Sxd-Id-kGh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Rzh-6o-vBH" kind="show" id="DNa-QG-YRf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LUu-x4-eBP" id="5Pf-vX-Dj7"/>
+                            <outlet property="delegate" destination="LUu-x4-eBP" id="qo9-U4-8Y6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="ggQ-RR-rfg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="yxk-OW-2RI">
+                            <connections>
+                                <segue destination="IFx-yd-qk8" kind="show" id="QXM-0W-cAd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWs-Vf-OyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="173"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VuW-b8-bGb">
+            <objects>
+                <viewController id="Rzh-6o-vBH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bUN-l7-lJs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Jk4-ER-6xN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwq-dX-JEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="461"/>
+        </scene>
+        <!--Income & Expenses-->
+        <scene sceneID="vID-1Z-EvI">
+            <objects>
+                <viewController id="IFx-yd-qk8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="116-UN-tkf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LpP-Tm-35y">
+                                <rect key="frame" x="0.0" y="132" width="414" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qir-jE-Mbw">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qir-jE-Mbw" id="GIM-yl-Xyd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hAp-Yi-ldt">
+                                <rect key="frame" x="0.0" y="422" width="414" height="309"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WWj-mM-9Eg">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WWj-mM-9Eg" id="D3o-q2-Tfd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXk-jd-EAZ">
+                                <rect key="frame" x="20.5" y="103" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azR-2q-5OW">
+                                <rect key="frame" x="20.5" y="393" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmY-Do-Uvu">
+                                <rect key="frame" x="0.0" y="739" width="414" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZi-GO-vKb">
+                                <rect key="frame" x="0.0" y="319" width="414" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LpP-Tm-35y" firstAttribute="centerX" secondItem="x6h-Dy-Ao5" secondAttribute="centerX" id="8OT-T8-oVl"/>
+                            <constraint firstItem="mmY-Do-Uvu" firstAttribute="centerX" secondItem="x6h-Dy-Ao5" secondAttribute="centerX" id="FMz-qb-AGO"/>
+                            <constraint firstItem="LpP-Tm-35y" firstAttribute="height" secondItem="116-UN-tkf" secondAttribute="height" multiplier="0.2" id="GqQ-7m-zMo"/>
+                            <constraint firstItem="mmY-Do-Uvu" firstAttribute="top" secondItem="hAp-Yi-ldt" secondAttribute="bottom" constant="8" id="HTX-Wu-BDm"/>
+                            <constraint firstItem="x6h-Dy-Ao5" firstAttribute="bottom" secondItem="mmY-Do-Uvu" secondAttribute="bottom" constant="44" id="Id2-2m-SfJ"/>
+                            <constraint firstItem="azR-2q-5OW" firstAttribute="top" secondItem="MZi-GO-vKb" secondAttribute="bottom" constant="44" id="JDf-eB-hti"/>
+                            <constraint firstItem="hAp-Yi-ldt" firstAttribute="centerX" secondItem="x6h-Dy-Ao5" secondAttribute="centerX" id="M3s-5h-R7j"/>
+                            <constraint firstItem="azR-2q-5OW" firstAttribute="width" secondItem="116-UN-tkf" secondAttribute="width" multiplier="0.9" id="N9n-ud-GyA"/>
+                            <constraint firstItem="MZi-GO-vKb" firstAttribute="top" secondItem="LpP-Tm-35y" secondAttribute="bottom" constant="8" id="WTu-K7-0h9"/>
+                            <constraint firstItem="hAp-Yi-ldt" firstAttribute="width" secondItem="116-UN-tkf" secondAttribute="width" id="igG-Vu-1XQ"/>
+                            <constraint firstItem="MZi-GO-vKb" firstAttribute="width" secondItem="116-UN-tkf" secondAttribute="width" id="jfT-Kt-N6H"/>
+                            <constraint firstItem="hAp-Yi-ldt" firstAttribute="top" secondItem="azR-2q-5OW" secondAttribute="bottom" constant="8" id="lzB-Nx-TNT"/>
+                            <constraint firstItem="LpP-Tm-35y" firstAttribute="top" secondItem="eXk-jd-EAZ" secondAttribute="bottom" constant="8" id="mPq-Cg-csZ"/>
+                            <constraint firstItem="eXk-jd-EAZ" firstAttribute="top" secondItem="x6h-Dy-Ao5" secondAttribute="top" constant="15" id="nwz-XH-kR7"/>
+                            <constraint firstItem="eXk-jd-EAZ" firstAttribute="width" secondItem="116-UN-tkf" secondAttribute="width" multiplier="0.9" id="oO4-aN-JnQ"/>
+                            <constraint firstItem="eXk-jd-EAZ" firstAttribute="centerX" secondItem="x6h-Dy-Ao5" secondAttribute="centerX" id="qxH-bf-X6E"/>
+                            <constraint firstItem="azR-2q-5OW" firstAttribute="centerX" secondItem="x6h-Dy-Ao5" secondAttribute="centerX" id="rPn-6d-Ymj"/>
+                            <constraint firstItem="mmY-Do-Uvu" firstAttribute="width" secondItem="116-UN-tkf" secondAttribute="width" id="vZm-Wx-mnr"/>
+                            <constraint firstItem="LpP-Tm-35y" firstAttribute="width" secondItem="116-UN-tkf" secondAttribute="width" id="x8J-tZ-HMk"/>
+                            <constraint firstItem="MZi-GO-vKb" firstAttribute="centerX" secondItem="x6h-Dy-Ao5" secondAttribute="centerX" id="zMm-mg-XR6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x6h-Dy-Ao5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Income &amp; Expenses" id="3Eg-sZ-e8h">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="F7Y-y0-SEz"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OmM-QL-HS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="-240"/>
+        </scene>
+        <!--Budgets-->
         <scene sceneID="bKw-OF-OaZ">
             <objects>
                 <navigationController id="bQw-wr-6YM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EZ3-Wc-GDa"/>
+                    <tabBarItem key="tabBarItem" title="Budgets" id="EZ3-Wc-GDa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zxA-lx-jKx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
