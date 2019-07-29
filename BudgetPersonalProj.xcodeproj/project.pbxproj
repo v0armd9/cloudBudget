@@ -16,6 +16,12 @@
 		2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E622E7EC38009F90F7 /* PayPeriod.swift */; };
 		2CC871E922E7EDDE009F90F7 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E822E7EDDE009F90F7 /* Income.swift */; };
 		2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871EA22E7EEBA009F90F7 /* Expense.swift */; };
+		2CF2BBC222EF4F9800B06A9A /* MasterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBC122EF4F9800B06A9A /* MasterListTableViewController.swift */; };
+		2CF2BBC422EF4FE600B06A9A /* MasterBudgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBC322EF4FE600B06A9A /* MasterBudgetController.swift */; };
+		2CF2BBC622EF6A7600B06A9A /* PayPeriodListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBC522EF6A7600B06A9A /* PayPeriodListTableViewController.swift */; };
+		2CF2BBCA22EF6F5300B06A9A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF2BBC922EF6F5300B06A9A /* CloudKit.framework */; };
+		2CF2BBCC22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */; };
+		2CF2BBCF22EFACEC00B06A9A /* IncomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBCE22EFACEC00B06A9A /* IncomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,13 @@
 		2CC871E622E7EC38009F90F7 /* PayPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPeriod.swift; sourceTree = "<group>"; };
 		2CC871E822E7EDDE009F90F7 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		2CC871EA22E7EEBA009F90F7 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		2CF2BBC122EF4F9800B06A9A /* MasterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterListTableViewController.swift; sourceTree = "<group>"; };
+		2CF2BBC322EF4FE600B06A9A /* MasterBudgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterBudgetController.swift; sourceTree = "<group>"; };
+		2CF2BBC522EF6A7600B06A9A /* PayPeriodListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPeriodListTableViewController.swift; sourceTree = "<group>"; };
+		2CF2BBC722EF6F5100B06A9A /* BudgetPersonalProj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BudgetPersonalProj.entitlements; sourceTree = "<group>"; };
+		2CF2BBC922EF6F5300B06A9A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBudgetTableViewController.swift; sourceTree = "<group>"; };
+		2CF2BBCE22EFACEC00B06A9A /* IncomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF2BBCA22EF6F5300B06A9A /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +62,7 @@
 			children = (
 				2C6060C922E7E956005BD461 /* BudgetPersonalProj */,
 				2C6060C822E7E956005BD461 /* Products */,
+				2CF2BBC822EF6F5300B06A9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +77,7 @@
 		2C6060C922E7E956005BD461 /* BudgetPersonalProj */ = {
 			isa = PBXGroup;
 			children = (
+				2CF2BBC722EF6F5100B06A9A /* BudgetPersonalProj.entitlements */,
 				2C6060E022E7E9A6005BD461 /* Views */,
 				2C6060E122E7E9BC005BD461 /* Controllers */,
 				2CC871E322E7EA55009F90F7 /* Models */,
@@ -86,6 +102,7 @@
 			children = (
 				2C6060CE22E7E956005BD461 /* Main.storyboard */,
 				2C6060D622E7E95B005BD461 /* LaunchScreen.storyboard */,
+				2CF2BBCD22EFACBD00B06A9A /* Custom Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +119,7 @@
 		2C6060E222E7E9D1005BD461 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CF2BBC322EF4FE600B06A9A /* MasterBudgetController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -109,6 +127,9 @@
 		2C6060E322E7E9E3005BD461 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2CF2BBC122EF4F9800B06A9A /* MasterListTableViewController.swift */,
+				2CF2BBC522EF6A7600B06A9A /* PayPeriodListTableViewController.swift */,
+				2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -122,6 +143,22 @@
 				2CC871EA22E7EEBA009F90F7 /* Expense.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2CF2BBC822EF6F5300B06A9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CF2BBC922EF6F5300B06A9A /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CF2BBCD22EFACBD00B06A9A /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CF2BBCE22EFACEC00B06A9A /* IncomeTableViewCell.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +193,14 @@
 				TargetAttributes = {
 					2C6060C622E7E956005BD461 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -196,11 +241,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */,
+				2CF2BBCF22EFACEC00B06A9A /* IncomeTableViewCell.swift in Sources */,
 				2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */,
+				2CF2BBC422EF4FE600B06A9A /* MasterBudgetController.swift in Sources */,
 				2C6060CB22E7E956005BD461 /* AppDelegate.swift in Sources */,
+				2CF2BBCC22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift in Sources */,
 				2CC871E522E7EB86009F90F7 /* MasterBudget.swift in Sources */,
 				2CC871E922E7EDDE009F90F7 /* Income.swift in Sources */,
+				2CF2BBC622EF6A7600B06A9A /* PayPeriodListTableViewController.swift in Sources */,
 				2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */,
+				2CF2BBC222EF4F9800B06A9A /* MasterListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BudgetPersonalProj/BudgetPersonalProj.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP48FW2MG5;
 				INFOPLIST_FILE = "$(SRCROOT)/BudgetPersonalProj/Resources/Info.plist";
@@ -364,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BudgetPersonalProj/BudgetPersonalProj.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QP48FW2MG5;
 				INFOPLIST_FILE = "$(SRCROOT)/BudgetPersonalProj/Resources/Info.plist";
