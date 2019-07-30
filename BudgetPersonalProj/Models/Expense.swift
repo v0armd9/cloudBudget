@@ -13,6 +13,7 @@ struct ExpenseConstants {
     static let recordType = "Expense"
     static let payPeriodReferenceKey = "PayPeriodReference"
     static let masterBudgetReferenceKey = "MasterBudgetReference"
+    static let masterExpenseReferenceKey = "MasterExpenseReference"
     fileprivate static let nameKey = "Name"
     fileprivate static let dueDateKey = "DueDate"
     fileprivate static let amountKey = "Amount"
@@ -26,6 +27,7 @@ class Expense {
     var recordID: CKRecord.ID
     weak var payPeriod: PayPeriod?
     weak var masterBudget: MasterBudget?
+    weak var masterExpense: Expense?
     
     var payPeriodReference: CKRecord.Reference? {
         guard let payPeriod = payPeriod else {return nil}
@@ -37,22 +39,28 @@ class Expense {
         return CKRecord.Reference(recordID: masterBudget.recordID, action: .deleteSelf)
     }
     
-    init(name: String, dueDate: Date, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    var masterExpenseReference: CKRecord.Reference? {
+        guard let masterExpense = masterExpense else {return nil}
+        return CKRecord.Reference(recordID: masterExpense.recordID, action: .deleteSelf)
+    }
+    
+    init(name: String, dueDate: Date, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.name = name
         self.dueDate = dueDate
         self.amount = amount
         self.recordID = recordID
         self.payPeriod = payPeriod
         self.masterBudget = masterBudget
+        self.masterExpense = masterExpense
     }
     
-    convenience init?(record: CKRecord, payPeriod: PayPeriod?, masterBudget: MasterBudget?) {
+    convenience init?(record: CKRecord, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?) {
         guard let name = record[ExpenseConstants.nameKey] as? String,
         let dueDate = record[ExpenseConstants.dueDateKey] as? Date,
         let amount = record[ExpenseConstants.amountKey] as? Double
             else {return nil}
         
-        self.init(name: name, dueDate: dueDate, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, recordID: record.recordID)
+        self.init(name: name, dueDate: dueDate, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterExpense: masterExpense, recordID: record.recordID)
     }
 }
 
@@ -61,6 +69,7 @@ extension CKRecord {
         self.init(recordType: ExpenseConstants.recordType, recordID: expense.recordID)
         self.setValue(expense.payPeriodReference, forKey: ExpenseConstants.payPeriodReferenceKey)
         self.setValue(expense.masterBudgetReference, forKey: ExpenseConstants.masterBudgetReferenceKey)
+        self.setValue(expense.masterExpenseReference, forKey: ExpenseConstants.masterExpenseReferenceKey)
         self.setValue(expense.name, forKey: ExpenseConstants.nameKey)
         self.setValue(expense.dueDate, forKey: ExpenseConstants.dueDateKey)
         self.setValue(expense.amount, forKey: ExpenseConstants.amountKey)

@@ -1,5 +1,5 @@
 //
-//  IncomeTableViewCell.swift
+//  ExpenseTableViewCell.swift
 //  BudgetPersonalProj
 //
 //  Created by Darin Marcus Armstrong on 7/29/19.
@@ -8,20 +8,23 @@
 
 import UIKit
 
-class IncomeTableViewCell: UITableViewCell {
+class ExpenseTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var frequencyLabel: UILabel!
-    @IBOutlet weak var incomeName: UITextField!
-    @IBOutlet weak var incomeAmount: UITextField!
-    @IBOutlet weak var daysOfMonthPicker: UIPickerView!
-    @IBOutlet weak var lastPayDatePicker: UIDatePicker!
-    @IBOutlet weak var payFrequencySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var expenseNameTextField: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var frequencySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var occurencePicker: UIPickerView!
+    @IBOutlet weak var addCellButton: UIButton!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    @IBAction func addCellButtonTapped(_ sender: UIButton) {
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

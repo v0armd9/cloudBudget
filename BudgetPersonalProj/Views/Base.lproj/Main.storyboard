@@ -65,7 +65,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="317" id="hc7-uc-q7B">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="317" id="hc7-uc-q7B" customClass="IncomeTableViewCell" customModule="BudgetPersonalProj" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="58" width="414" height="317"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hc7-uc-q7B" id="iAe-bD-A1p">
@@ -136,8 +136,16 @@
                                         <constraint firstItem="qVZ-aj-it0" firstAttribute="top" secondItem="Eug-BZ-dV7" secondAttribute="bottom" constant="2" id="lZR-Tf-iNY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="daysOfMonthPicker" destination="GLr-vd-b8L" id="mDV-7f-eeT"/>
+                                    <outlet property="frequencyLabel" destination="Eug-BZ-dV7" id="efO-XB-QZ6"/>
+                                    <outlet property="incomeAmount" destination="jke-to-hUk" id="4kV-0h-aJP"/>
+                                    <outlet property="incomeName" destination="SWJ-4w-sxV" id="ezy-YL-14C"/>
+                                    <outlet property="lastPayDatePicker" destination="oxO-NS-7ph" id="XOM-sK-OK6"/>
+                                    <outlet property="payFrequencySegmentedControl" destination="qVZ-aj-it0" id="K0d-C3-G3x"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="237" id="vMh-qE-Nhe">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="237" id="vMh-qE-Nhe" customClass="ExpenseTableViewCell" customModule="BudgetPersonalProj" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="375" width="414" height="237"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vMh-qE-Nhe" id="0Mp-Hy-7zD">
@@ -156,6 +164,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owO-I6-coD">
                                                     <rect key="frame" x="0.0" y="105" width="398" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="addCellButtonTapped:" destination="vMh-qE-Nhe" eventType="touchUpInside" id="Kez-aO-IaI"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -197,6 +208,13 @@
                                         <constraint firstItem="gUh-8V-aCO" firstAttribute="top" secondItem="Zl9-ar-0JS" secondAttribute="bottom" constant="5" id="rIT-Rp-h0M"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addCellButton" destination="owO-I6-coD" id="SmS-ZC-a9m"/>
+                                    <outlet property="amountTextField" destination="441-Da-q04" id="eaC-UG-jCJ"/>
+                                    <outlet property="expenseNameTextField" destination="GfN-SP-0H9" id="BMs-1G-EF0"/>
+                                    <outlet property="frequencySegmentedControl" destination="gUh-8V-aCO" id="X1W-03-a4f"/>
+                                    <outlet property="occurencePicker" destination="EvF-Tv-YFh" id="14Z-7L-nxA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
