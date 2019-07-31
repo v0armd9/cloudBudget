@@ -15,6 +15,37 @@ class IncomeController {
     
     let privateDB = CKContainer.default().privateCloudDatabase
     
-    func createIncomeWith(name: String, payDate: Date, amount: Double)
+    // Create Functions
+    func createIncomeWith(name: String, payDate: Date, amount: Double, payPeriod: PayPeriod, masterIncome: Income, completion: @escaping (Income?) -> Void) {
+        let newIncome = Income(name: name, payDate: payDate, amount: amount, payPeriod: payPeriod, masterBudget: nil, masterIncome: masterIncome)
+        payPeriod.income.append(newIncome)
+        let record = CKRecord(income: newIncome)
+        privateDB.save(record) { (record, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                completion(nil)
+                return
+            }
+            guard let record = record else {completion(nil); return}
+            let income = Income(record: record, payPeriod: payPeriod, masterBudget: nil, masterIncome: masterIncome)
+            completion(income)
+        }
+    }
+    
+    func createMasterIncomeWith(name: String, paydate: Date, amount: Double, masterBudget: MasterBudget, completion: @escaping (Income?) -> Void) {
+        let newMasterIncome = Income(name: name, payDate: paydate, amount: amount, payPeriod: nil, masterBudget: masterBudget, masterIncome: nil)
+        masterBudget.masterIncomeList.append(newMasterIncome)
+        let record = CKRecord(income: newMasterIncome)
+        privateDB.save(record) { (record, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                completion(nil)
+                return
+            }
+            guard let record = record else {completion(nil); return}
+            let income = Income(record: record, payPeriod: nil, masterBudget: masterBudget, masterIncome: nil)
+            completion(income)
+        }
+    }
     
 }

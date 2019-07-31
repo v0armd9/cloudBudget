@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="-1007" y="173"/>
         </scene>
-        <!--Create Budget Table View Controller-->
+        <!--New Budget-->
         <scene sceneID="hoc-dv-mHu">
             <objects>
                 <tableViewController id="3j7-UP-gby" customClass="CreateBudgetTableViewController" customModule="BudgetPersonalProj" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,164 +57,126 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textField key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your Budget..." textAlignment="natural" minimumFontSize="17" id="CjH-Le-UEF">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="iSt-3K-9NR">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="429"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="317" id="hc7-uc-q7B" customClass="IncomeTableViewCell" customModule="BudgetPersonalProj" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="414" height="317"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hc7-uc-q7B" id="iAe-bD-A1p">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="316.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name this payment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZA5-WJ-e8g">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-0b-FHB">
+                                    <rect key="frame" x="0.0" y="46" width="414" height="383"/>
                                     <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-sb-cVD">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="47" id="o8S-iS-tdG"/>
+                                            </constraints>
+                                            <segments>
+                                                <segment title="Income"/>
+                                                <segment title="Expense"/>
+                                            </segments>
+                                        </segmentedControl>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vxU-70-va4">
+                                            <rect key="frame" x="0.0" y="48" width="414" height="30"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name this payment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SWJ-4w-sxV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="204.5" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set the payment amount..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jke-to-hUk">
+                                                    <rect key="frame" x="209.5" y="0.0" width="204.5" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                            </subviews>
+                                        </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How often are you paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-BZ-dV7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="79" width="414" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qVZ-aj-it0">
-                                            <rect key="frame" x="28" y="22.5" width="358" height="29"/>
+                                            <rect key="frame" x="0.0" y="100.5" width="414" height="29"/>
                                             <segments>
                                                 <segment title="Weekly"/>
                                                 <segment title="Bi-Weekly"/>
                                                 <segment title="Specific Days"/>
                                             </segments>
                                         </segmentedControl>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vxU-70-va4">
-                                            <rect key="frame" x="8" y="62.5" width="398" height="240"/>
-                                            <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oxO-NS-7ph">
-                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="s0Y-6f-2my"/>
-                                                    </constraints>
-                                                    <date key="date" timeIntervalSinceReferenceDate="586127212.96673703">
-                                                        <!--2019-07-29 21:06:52 +0000-->
-                                                    </date>
-                                                </datePicker>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLr-vd-b8L">
-                                                    <rect key="frame" x="0.0" y="105" width="398" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="mvk-Ik-cJV"/>
-                                                    </constraints>
-                                                </pickerView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fkC-Ix-MEv">
-                                                    <rect key="frame" x="0.0" y="210" width="398" height="30"/>
-                                                    <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name this payment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SWJ-4w-sxV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="196.5" height="30"/>
-                                                            <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set the payment amount..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jke-to-hUk">
-                                                            <rect key="frame" x="201.5" y="0.0" width="196.5" height="30"/>
-                                                            <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                        </textField>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How often are you paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-gE-JJh">
+                                            <rect key="frame" x="0.0" y="129.5" width="414" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oxO-NS-7ph">
+                                            <rect key="frame" x="0.0" y="151" width="414" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="s0Y-6f-2my"/>
+                                            </constraints>
+                                            <date key="date" timeIntervalSinceReferenceDate="586127212.96673703">
+                                                <!--2019-07-29 21:06:52 +0000-->
+                                            </date>
+                                        </datePicker>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLr-vd-b8L">
+                                            <rect key="frame" x="0.0" y="252" width="414" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="mvk-Ik-cJV"/>
+                                            </constraints>
+                                        </pickerView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xz0-QO-LUm">
+                                            <rect key="frame" x="0.0" y="353" width="414" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="3j7-UP-gby" eventType="touchUpInside" id="ql6-HG-b0c"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Eug-BZ-dV7" firstAttribute="top" secondItem="iAe-bD-A1p" secondAttribute="top" id="5Au-5M-L0x"/>
-                                        <constraint firstItem="vxU-70-va4" firstAttribute="leading" secondItem="iAe-bD-A1p" secondAttribute="leading" constant="8" id="7hE-aU-c79"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qVZ-aj-it0" secondAttribute="trailing" constant="8" id="BHv-lQ-Ccw"/>
-                                        <constraint firstAttribute="trailing" secondItem="Eug-BZ-dV7" secondAttribute="trailing" id="M53-9X-AGR"/>
-                                        <constraint firstAttribute="trailing" secondItem="vxU-70-va4" secondAttribute="trailing" constant="8" id="Xcg-k7-6hd"/>
-                                        <constraint firstItem="vxU-70-va4" firstAttribute="top" secondItem="qVZ-aj-it0" secondAttribute="bottom" constant="12" id="dmR-xR-0n5"/>
-                                        <constraint firstItem="qVZ-aj-it0" firstAttribute="leading" secondItem="iAe-bD-A1p" secondAttribute="leadingMargin" constant="8" id="fE1-Vm-aqy"/>
-                                        <constraint firstItem="Eug-BZ-dV7" firstAttribute="leading" secondItem="iAe-bD-A1p" secondAttribute="leading" id="klY-KJ-VUT"/>
-                                        <constraint firstItem="qVZ-aj-it0" firstAttribute="top" secondItem="Eug-BZ-dV7" secondAttribute="bottom" constant="2" id="lZR-Tf-iNY"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="daysOfMonthPicker" destination="GLr-vd-b8L" id="mDV-7f-eeT"/>
-                                    <outlet property="frequencyLabel" destination="Eug-BZ-dV7" id="efO-XB-QZ6"/>
-                                    <outlet property="incomeAmount" destination="jke-to-hUk" id="4kV-0h-aJP"/>
-                                    <outlet property="incomeName" destination="SWJ-4w-sxV" id="ezy-YL-14C"/>
-                                    <outlet property="lastPayDatePicker" destination="oxO-NS-7ph" id="XOM-sK-OK6"/>
-                                    <outlet property="payFrequencySegmentedControl" destination="qVZ-aj-it0" id="K0d-C3-G3x"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="237" id="vMh-qE-Nhe" customClass="ExpenseTableViewCell" customModule="BudgetPersonalProj" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="375" width="414" height="237"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="7UU-0b-FHB" secondAttribute="trailing" id="1PG-vN-ubO"/>
+                                <constraint firstItem="ZA5-WJ-e8g" firstAttribute="leading" secondItem="iSt-3K-9NR" secondAttribute="leading" id="7fB-lw-sKU"/>
+                                <constraint firstAttribute="trailing" secondItem="ZA5-WJ-e8g" secondAttribute="trailing" id="Fa9-Iu-KDs"/>
+                                <constraint firstAttribute="bottom" secondItem="7UU-0b-FHB" secondAttribute="bottom" id="MD1-tl-xxf"/>
+                                <constraint firstItem="7UU-0b-FHB" firstAttribute="leading" secondItem="iSt-3K-9NR" secondAttribute="leading" id="OvC-TP-e1B"/>
+                                <constraint firstItem="7UU-0b-FHB" firstAttribute="top" secondItem="ZA5-WJ-e8g" secondAttribute="bottom" id="Uy8-cM-Aef"/>
+                                <constraint firstItem="ZA5-WJ-e8g" firstAttribute="top" secondItem="iSt-3K-9NR" secondAttribute="top" id="yt6-3c-xCN"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="tQp-4r-0fr" detailTextLabel="DWz-9b-oN5" style="IBUITableViewCellStyleValue1" id="7wk-iH-Jtg">
+                                <rect key="frame" x="0.0" y="457" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vMh-qE-Nhe" id="0Mp-Hy-7zD">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="236.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7wk-iH-Jtg" id="3AL-ed-bdA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TF5-ca-ofb">
-                                            <rect key="frame" x="8" y="87" width="398" height="135"/>
-                                            <subviews>
-                                                <pickerView contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="EvF-Tv-YFh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="pso-Yz-yUA"/>
-                                                    </constraints>
-                                                </pickerView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owO-I6-coD">
-                                                    <rect key="frame" x="0.0" y="105" width="398" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <action selector="addCellButtonTapped:" destination="vMh-qE-Nhe" eventType="touchUpInside" id="Kez-aO-IaI"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gUh-8V-aCO">
-                                            <rect key="frame" x="28" y="47" width="358" height="29"/>
-                                            <segments>
-                                                <segment title="Weekly"/>
-                                                <segment title="Bi-Weekly"/>
-                                                <segment title="Specific Day"/>
-                                            </segments>
-                                        </segmentedControl>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Zl9-ar-0JS">
-                                            <rect key="frame" x="8" y="12" width="398" height="30"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name this expense..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfN-SP-0H9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="441-Da-q04">
-                                                    <rect key="frame" x="206" y="0.0" width="192" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tQp-4r-0fr">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DWz-9b-oN5">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Zl9-ar-0JS" firstAttribute="leading" secondItem="0Mp-Hy-7zD" secondAttribute="leading" constant="8" id="7lj-cD-dks"/>
-                                        <constraint firstItem="TF5-ca-ofb" firstAttribute="leading" secondItem="0Mp-Hy-7zD" secondAttribute="leading" constant="8" id="Bfz-rS-9OV"/>
-                                        <constraint firstItem="Zl9-ar-0JS" firstAttribute="top" secondItem="0Mp-Hy-7zD" secondAttribute="top" constant="12" id="G82-T0-i5S"/>
-                                        <constraint firstItem="gUh-8V-aCO" firstAttribute="leading" secondItem="0Mp-Hy-7zD" secondAttribute="leadingMargin" constant="8" id="Kc8-fk-Txk"/>
-                                        <constraint firstAttribute="trailing" secondItem="Zl9-ar-0JS" secondAttribute="trailing" constant="8" id="Pap-uU-S6W"/>
-                                        <constraint firstItem="TF5-ca-ofb" firstAttribute="top" secondItem="gUh-8V-aCO" secondAttribute="bottom" constant="12" id="RX1-0d-jXG"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="gUh-8V-aCO" secondAttribute="trailing" constant="8" id="Uuc-Rf-MAD"/>
-                                        <constraint firstAttribute="trailing" secondItem="TF5-ca-ofb" secondAttribute="trailing" constant="8" id="e3S-Ze-wXV"/>
-                                        <constraint firstItem="gUh-8V-aCO" firstAttribute="top" secondItem="Zl9-ar-0JS" secondAttribute="bottom" constant="5" id="rIT-Rp-h0M"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="addCellButton" destination="owO-I6-coD" id="SmS-ZC-a9m"/>
-                                    <outlet property="amountTextField" destination="441-Da-q04" id="eaC-UG-jCJ"/>
-                                    <outlet property="expenseNameTextField" destination="GfN-SP-0H9" id="BMs-1G-EF0"/>
-                                    <outlet property="frequencySegmentedControl" destination="gUh-8V-aCO" id="X1W-03-a4f"/>
-                                    <outlet property="occurencePicker" destination="EvF-Tv-YFh" id="14Z-7L-nxA"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -222,6 +184,19 @@
                             <outlet property="delegate" destination="3j7-UP-gby" id="b6X-fm-DO7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="New Budget" id="rSx-Fg-jsU">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Kb2-ue-rbD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="xz0-QO-LUm" id="7M5-Qo-2R3"/>
+                        <outlet property="budgetNameTextField" destination="ZA5-WJ-e8g" id="JJf-pV-dPC"/>
+                        <outlet property="customDayPicker" destination="GLr-vd-b8L" id="k6m-9F-cge"/>
+                        <outlet property="datePicker" destination="oxO-NS-7ph" id="q8h-In-j3U"/>
+                        <outlet property="recordAmountTextField" destination="jke-to-hUk" id="NZE-uz-NAL"/>
+                        <outlet property="recordNameTextField" destination="SWJ-4w-sxV" id="RwU-5e-8IC"/>
+                        <outlet property="recordTypeSegmentedControl" destination="GGb-sb-cVD" id="ehq-vZ-8JI"/>
+                        <outlet property="timeframeSegmentedControl" destination="qVZ-aj-it0" id="9V7-RV-76f"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzS-ZD-IdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

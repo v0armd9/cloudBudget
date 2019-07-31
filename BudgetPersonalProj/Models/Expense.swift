@@ -15,14 +15,18 @@ struct ExpenseConstants {
     static let masterBudgetReferenceKey = "MasterBudgetReference"
     static let masterExpenseReferenceKey = "MasterExpenseReference"
     fileprivate static let nameKey = "Name"
-    fileprivate static let dueDateKey = "DueDate"
+    fileprivate static let monthlyKey = "Monthly"
+    fileprivate static let weeklyKey = "Weekly"
+    fileprivate static let biWeeklyKey = "BiWeekly"
     fileprivate static let amountKey = "Amount"
 }
 
 class Expense {
     
     var name: String
-    var dueDate: Date
+    var monthly: Date?
+    var weekly: Int?
+    var biWeekly: DateInterval?
     var amount: Double
     var recordID: CKRecord.ID
     weak var payPeriod: PayPeriod?
@@ -44,9 +48,11 @@ class Expense {
         return CKRecord.Reference(recordID: masterExpense.recordID, action: .deleteSelf)
     }
     
-    init(name: String, dueDate: Date, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(name: String, monthly: Date?, weekly: Int?, biWeekly: DateInterval?, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.name = name
-        self.dueDate = dueDate
+        self.monthly = monthly
+        self.weekly = weekly
+        self.biWeekly = biWeekly
         self.amount = amount
         self.recordID = recordID
         self.payPeriod = payPeriod
@@ -56,11 +62,13 @@ class Expense {
     
     convenience init?(record: CKRecord, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?) {
         guard let name = record[ExpenseConstants.nameKey] as? String,
-        let dueDate = record[ExpenseConstants.dueDateKey] as? Date,
-        let amount = record[ExpenseConstants.amountKey] as? Double
-            else {return nil}
+            let monthly = record[ExpenseConstants.monthlyKey] as? Date,
+            let weekly = record[ExpenseConstants.weeklyKey] as? Int,
+            let biWeekly = record[ExpenseConstants.biWeeklyKey] as? DateInterval,
+            let amount = record[ExpenseConstants.amountKey] as? Double
+        else {return nil}
         
-        self.init(name: name, dueDate: dueDate, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterExpense: masterExpense, recordID: record.recordID)
+        self.init(name: name, monthly: monthly, weekly: weekly, biWeekly: biWeekly, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterExpense: masterExpense, recordID: record.recordID)
     }
 }
 
@@ -71,7 +79,9 @@ extension CKRecord {
         self.setValue(expense.masterBudgetReference, forKey: ExpenseConstants.masterBudgetReferenceKey)
         self.setValue(expense.masterExpenseReference, forKey: ExpenseConstants.masterExpenseReferenceKey)
         self.setValue(expense.name, forKey: ExpenseConstants.nameKey)
-        self.setValue(expense.dueDate, forKey: ExpenseConstants.dueDateKey)
+        self.setValue(expense.monthly, forKey: ExpenseConstants.monthlyKey)
+        self.setValue(expense.weekly, forKey: ExpenseConstants.weeklyKey)
+        self.setValue(expense.biWeekly, forKey: ExpenseConstants.biWeeklyKey)
         self.setValue(expense.amount, forKey: ExpenseConstants.amountKey)
     }
 }

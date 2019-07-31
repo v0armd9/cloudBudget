@@ -21,8 +21,6 @@
 		2CF2BBC622EF6A7600B06A9A /* PayPeriodListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBC522EF6A7600B06A9A /* PayPeriodListTableViewController.swift */; };
 		2CF2BBCA22EF6F5300B06A9A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF2BBC922EF6F5300B06A9A /* CloudKit.framework */; };
 		2CF2BBCC22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */; };
-		2CF2BBCF22EFACEC00B06A9A /* IncomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBCE22EFACEC00B06A9A /* IncomeTableViewCell.swift */; };
-		2CF2BBD122EFAE6E00B06A9A /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD022EFAE6E00B06A9A /* ExpenseTableViewCell.swift */; };
 		2CF2BBD322F07D7200B06A9A /* PayPeriodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD222F07D7200B06A9A /* PayPeriodController.swift */; };
 		2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD422F07D8900B06A9A /* IncomeController.swift */; };
 		2CF2BBD722F07D9C00B06A9A /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */; };
@@ -46,8 +44,6 @@
 		2CF2BBC722EF6F5100B06A9A /* BudgetPersonalProj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BudgetPersonalProj.entitlements; sourceTree = "<group>"; };
 		2CF2BBC922EF6F5300B06A9A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBudgetTableViewController.swift; sourceTree = "<group>"; };
-		2CF2BBCE22EFACEC00B06A9A /* IncomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeTableViewCell.swift; sourceTree = "<group>"; };
-		2CF2BBD022EFAE6E00B06A9A /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		2CF2BBD222F07D7200B06A9A /* PayPeriodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPeriodController.swift; sourceTree = "<group>"; };
 		2CF2BBD422F07D8900B06A9A /* IncomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
 		2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
@@ -167,8 +163,6 @@
 		2CF2BBCD22EFACBD00B06A9A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				2CF2BBCE22EFACEC00B06A9A /* IncomeTableViewCell.swift */,
-				2CF2BBD022EFAE6E00B06A9A /* ExpenseTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -254,9 +248,7 @@
 			files = (
 				2CF2BBD722F07D9C00B06A9A /* ExpenseController.swift in Sources */,
 				2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */,
-				2CF2BBD122EFAE6E00B06A9A /* ExpenseTableViewCell.swift in Sources */,
 				2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */,
-				2CF2BBCF22EFACEC00B06A9A /* IncomeTableViewCell.swift in Sources */,
 				2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */,
 				2CF2BBC422EF4FE600B06A9A /* MasterBudgetController.swift in Sources */,
 				2C6060CB22E7E956005BD461 /* AppDelegate.swift in Sources */,
