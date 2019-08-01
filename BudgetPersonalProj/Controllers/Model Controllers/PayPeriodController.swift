@@ -35,7 +35,7 @@ class PayPeriodController {
     }
     
     
-    private func createPayPeriod(withStartDate startDate: Date, endDate: Date, masterBudget: MasterBudget, completion: @escaping (PayPeriod?) -> Void) {
+    func createPayPeriod(withStartDate startDate: Date, endDate: Date, masterBudget: MasterBudget, completion: @escaping (PayPeriod?) -> Void) {
         let newPayPeriod = PayPeriod(startDate: startDate, endDate: endDate, masterBudget: masterBudget)
         masterBudget.payPeriods.append(newPayPeriod)
         let record = CKRecord(payPeriod: newPayPeriod)

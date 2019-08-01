@@ -61,14 +61,17 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="429"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name this payment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZA5-WJ-e8g">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name this Budget..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZA5-WJ-e8g">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="DEw-LQ-OUh"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-0b-FHB">
-                                    <rect key="frame" x="0.0" y="46" width="414" height="383"/>
+                                    <rect key="frame" x="0.0" y="30" width="414" height="399"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-sb-cVD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -79,6 +82,9 @@
                                                 <segment title="Income"/>
                                                 <segment title="Expense"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="recordTypeControlValueChanged:" destination="3j7-UP-gby" eventType="valueChanged" id="Qh5-Ax-OJf"/>
+                                            </connections>
                                         </segmentedControl>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vxU-70-va4">
                                             <rect key="frame" x="0.0" y="48" width="414" height="30"/>
@@ -89,51 +95,92 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set the payment amount..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jke-to-hUk">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an Amount..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jke-to-hUk">
                                                     <rect key="frame" x="209.5" y="0.0" width="204.5" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="KQl-qS-CXv"/>
+                                            </constraints>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How often are you paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-BZ-dV7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-BZ-dV7">
                                             <rect key="frame" x="0.0" y="79" width="414" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20.5" id="dTv-JU-b23"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qVZ-aj-it0">
-                                            <rect key="frame" x="0.0" y="100.5" width="414" height="29"/>
+                                            <rect key="frame" x="0.0" y="100.5" width="414" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="LbO-5n-GmN"/>
+                                            </constraints>
                                             <segments>
                                                 <segment title="Weekly"/>
                                                 <segment title="Bi-Weekly"/>
                                                 <segment title="Specific Days"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="timeFrameControlValueChanged:" destination="3j7-UP-gby" eventType="valueChanged" id="d15-Rk-dYl"/>
+                                            </connections>
                                         </segmentedControl>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How often are you paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-gE-JJh">
-                                            <rect key="frame" x="0.0" y="129.5" width="414" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGL-gE-JJh">
+                                            <rect key="frame" x="0.0" y="145.5" width="414" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20.5" id="w7c-ks-GvS"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oxO-NS-7ph">
-                                            <rect key="frame" x="0.0" y="151" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="167" width="414" height="78.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="s0Y-6f-2my"/>
+                                                <constraint firstAttribute="height" constant="78.5" id="juW-kw-tFN"/>
                                             </constraints>
                                             <date key="date" timeIntervalSinceReferenceDate="586127212.96673703">
                                                 <!--2019-07-29 21:06:52 +0000-->
                                             </date>
                                         </datePicker>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ATJ-aM-tHI">
+                                            <rect key="frame" x="0.0" y="246.5" width="414" height="20.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqF-uw-MCw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20.5" id="Swm-Kc-i0J"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugZ-LB-RtB">
+                                                    <rect key="frame" x="207" y="0.0" width="207" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20.5" id="YtY-hP-xm8"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLr-vd-b8L">
-                                            <rect key="frame" x="0.0" y="252" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="268" width="414" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="mvk-Ik-cJV"/>
                                             </constraints>
                                         </pickerView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xz0-QO-LUm">
-                                            <rect key="frame" x="0.0" y="353" width="414" height="30"/>
+                                            <rect key="frame" x="0.0" y="369" width="414" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="sTZ-9e-G5g"/>
+                                            </constraints>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="addButtonTapped:" destination="3j7-UP-gby" eventType="touchUpInside" id="ql6-HG-b0c"/>
@@ -154,7 +201,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="tQp-4r-0fr" detailTextLabel="DWz-9b-oN5" style="IBUITableViewCellStyleValue1" id="7wk-iH-Jtg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" textLabel="tQp-4r-0fr" detailTextLabel="DWz-9b-oN5" style="IBUITableViewCellStyleValue1" id="7wk-iH-Jtg">
                                 <rect key="frame" x="0.0" y="457" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7wk-iH-Jtg" id="3AL-ed-bdA">
@@ -190,11 +237,15 @@
                     <connections>
                         <outlet property="addButton" destination="xz0-QO-LUm" id="7M5-Qo-2R3"/>
                         <outlet property="budgetNameTextField" destination="ZA5-WJ-e8g" id="JJf-pV-dPC"/>
+                        <outlet property="customDateLabel" destination="oqF-uw-MCw" id="u2S-Lg-NU5"/>
                         <outlet property="customDayPicker" destination="GLr-vd-b8L" id="k6m-9F-cge"/>
+                        <outlet property="dateLabel" destination="GGL-gE-JJh" id="TyC-eK-Q9X"/>
                         <outlet property="datePicker" destination="oxO-NS-7ph" id="q8h-In-j3U"/>
                         <outlet property="recordAmountTextField" destination="jke-to-hUk" id="NZE-uz-NAL"/>
                         <outlet property="recordNameTextField" destination="SWJ-4w-sxV" id="RwU-5e-8IC"/>
                         <outlet property="recordTypeSegmentedControl" destination="GGb-sb-cVD" id="ehq-vZ-8JI"/>
+                        <outlet property="secondCustomDateLabel" destination="ugZ-LB-RtB" id="1Kb-o4-YXV"/>
+                        <outlet property="timeFrameLabel" destination="Eug-BZ-dV7" id="Fee-Tf-OHU"/>
                         <outlet property="timeframeSegmentedControl" destination="qVZ-aj-it0" id="9V7-RV-76f"/>
                     </connections>
                 </tableViewController>

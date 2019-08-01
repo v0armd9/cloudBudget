@@ -17,6 +17,8 @@ struct IncomeConstants {
     static let masterIncomeReferenceKey = "MasterIncomeReference"
     fileprivate static let nameKey = "Name"
     fileprivate static let payDateKey = "PayDate"
+    fileprivate static let firstSpecificDayKey = "FirstSpecificDay"
+    fileprivate static let secondSpecificDayKey = "SecondSpecificDay"
     fileprivate static let amountKey = "Amount"
 }
 
@@ -24,7 +26,9 @@ class Income {
     
     // MARK: - Class Properties
     var name: String
-    var payDate: Date
+    var payDate: Date?
+    var firstSpecificDay: Int?
+    var secondSpecificDay: Int?
     var amount: Double
     var recordID: CKRecord.ID
     weak var payPeriod: PayPeriod?
@@ -47,9 +51,11 @@ class Income {
     }
     
     // Designated Init
-    init(name: String, payDate: Date, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterIncome: Income?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(name: String, payDate: Date?, firstSpecificDay: Int?, secondSpecificDay: Int?, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterIncome: Income?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.name = name
         self.payDate = payDate
+        self.firstSpecificDay = firstSpecificDay
+        self.secondSpecificDay = secondSpecificDay
         self.amount = amount
         self.recordID = recordID
         self.payPeriod = payPeriod
@@ -60,10 +66,12 @@ class Income {
     convenience init?(record: CKRecord, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterIncome: Income?) {
         guard let name = record[IncomeConstants.nameKey] as? String,
         let payDate = record[IncomeConstants.payDateKey] as? Date,
+        let firstSpecificDay = record[IncomeConstants.firstSpecificDayKey] as? Int,
+        let secondSpecificDay = record[IncomeConstants.secondSpecificDayKey] as? Int,
         let amount = record[IncomeConstants.amountKey] as? Double
         else {return nil}
         
-        self.init(name: name, payDate: payDate, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterIncome: masterIncome, recordID: record.recordID)
+        self.init(name: name, payDate: payDate, firstSpecificDay: firstSpecificDay, secondSpecificDay: secondSpecificDay, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterIncome: masterIncome, recordID: record.recordID)
     }
 }
 
@@ -75,6 +83,8 @@ extension CKRecord {
         self.setValue(income.masterIncome, forKey: IncomeConstants.masterIncomeReferenceKey)
         self.setValue(income.name, forKey: IncomeConstants.nameKey)
         self.setValue(income.payDate, forKey: IncomeConstants.payDateKey)
+        self.setValue(income.firstSpecificDay, forKey: IncomeConstants.firstSpecificDayKey)
+        self.setValue(income.secondSpecificDay, forKey: IncomeConstants.secondSpecificDayKey)
         self.setValue(income.amount, forKey: IncomeConstants.amountKey)
     }
 }

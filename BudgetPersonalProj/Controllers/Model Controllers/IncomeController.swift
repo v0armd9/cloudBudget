@@ -16,8 +16,8 @@ class IncomeController {
     let privateDB = CKContainer.default().privateCloudDatabase
     
     // Create Functions
-    func createIncomeWith(name: String, payDate: Date, amount: Double, payPeriod: PayPeriod, masterIncome: Income, completion: @escaping (Income?) -> Void) {
-        let newIncome = Income(name: name, payDate: payDate, amount: amount, payPeriod: payPeriod, masterBudget: nil, masterIncome: masterIncome)
+    func createIncomeWith(name: String, payDate: Date?, firstSpecificDay: Int?, secondSpecificDay: Int?, amount: Double, payPeriod: PayPeriod, masterIncome: Income, completion: @escaping (Income?) -> Void) {
+        let newIncome = Income(name: name, payDate: payDate, firstSpecificDay: firstSpecificDay, secondSpecificDay: secondSpecificDay, amount: amount, payPeriod: payPeriod, masterBudget: nil, masterIncome: masterIncome)
         payPeriod.income.append(newIncome)
         let record = CKRecord(income: newIncome)
         privateDB.save(record) { (record, error) in
@@ -32,8 +32,8 @@ class IncomeController {
         }
     }
     
-    func createMasterIncomeWith(name: String, paydate: Date, amount: Double, masterBudget: MasterBudget, completion: @escaping (Income?) -> Void) {
-        let newMasterIncome = Income(name: name, payDate: paydate, amount: amount, payPeriod: nil, masterBudget: masterBudget, masterIncome: nil)
+    func createMasterIncomeWith(name: String, paydate: Date?, firstSpecificDay: Int?, secondSpecificDay: Int?, amount: Double, masterBudget: MasterBudget, completion: @escaping (Income?) -> Void) {
+        let newMasterIncome = Income(name: name, payDate: paydate, firstSpecificDay: firstSpecificDay, secondSpecificDay: secondSpecificDay, amount: amount, payPeriod: nil, masterBudget: masterBudget, masterIncome: nil)
         masterBudget.masterIncomeList.append(newMasterIncome)
         let record = CKRecord(income: newMasterIncome)
         privateDB.save(record) { (record, error) in

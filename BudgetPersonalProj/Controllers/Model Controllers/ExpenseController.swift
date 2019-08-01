@@ -16,8 +16,8 @@ class ExpenseController {
     let privateDB = CKContainer.default().privateCloudDatabase
     
     // Create Functions
-    func createExpenseWith(name: String, payDate: Date, amount: Double, payPeriod: PayPeriod, masterExpense: Expense, completion: @escaping (Expense?) -> Void) {
-        let newExpense = Expense(name: name, dueDate: payDate, amount: amount, payPeriod: payPeriod, masterBudget: nil, masterExpense: masterExpense)
+    func createExpenseWith(name: String, monthly: Date?, weekly: Int?, biWeekly: DateInterval?, amount: Double, payPeriod: PayPeriod, masterExpense: Expense, completion: @escaping (Expense?) -> Void) {
+        let newExpense = Expense(name: name, monthly: monthly, weekly: weekly, biWeekly: biWeekly, amount: amount, payPeriod: payPeriod, masterBudget: nil, masterExpense: masterExpense)
         payPeriod.expenses.append(newExpense)
         let record = CKRecord(expense: newExpense)
         privateDB.save(record) { (record, error) in
@@ -32,8 +32,8 @@ class ExpenseController {
         }
     }
     
-    func createMasterExpenseWith(name: String, paydate: Date, amount: Double, masterBudget: MasterBudget, completion: @escaping (Expense?) -> Void) {
-        let newMasterExpense = Expense(name: name, dueDate: paydate, amount: amount, payPeriod: nil, masterBudget: masterBudget, masterExpense: nil)
+    func createMasterExpenseWith(name: String, monthly: Date?, weekly: Int?, biWeekly: DateInterval?, amount: Double, masterBudget: MasterBudget, completion: @escaping (Expense?) -> Void) {
+        let newMasterExpense = Expense(name: name, monthly: monthly, weekly: weekly, biWeekly: biWeekly, amount: amount, payPeriod: nil, masterBudget: masterBudget, masterExpense: nil)
         masterBudget.masterExpenseList.append(newMasterExpense)
         let record = CKRecord(expense: newMasterExpense)
         privateDB.save(record) { (record, error) in
