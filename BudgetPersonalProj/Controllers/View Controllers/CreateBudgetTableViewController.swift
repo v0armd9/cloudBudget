@@ -27,7 +27,9 @@ class CreateBudgetTableViewController: UITableViewController {
     var masterIncome: Income?
     var suplementalIncome: [Income]?
     var componentCountForCustomPicker = 1
-    var customPickerData = ["1","2", "3", "4", "5","6", "7", "8", "9","10", "11", "12", "13","14", "15", "16", "17","18", "19", "20", "21","22", "23", "24", "25","26", "27", "28", "End of the month"]
+    var customPickerData = ["1","2", "3", "4", "5","6", "7", "8", "9","10", "11", "12", "13","14", "15", "16", "17","18", "19", "20", "21","22", "23", "24", "25","26", "27", "28", "29", "30", "31"]
+    var firstSelectedDay: Int?
+    var secondSelectedDay: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ class CreateBudgetTableViewController: UITableViewController {
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
         // Check if we have a master
-        if masterBudget == masterBudget {
+        if masterBudget != nil {
            checkForRecordType()
         } else {
             generateNewMasterBudget()
@@ -178,7 +180,9 @@ class CreateBudgetTableViewController: UITableViewController {
             payPeriodLength = 13
              PayPeriodController.sharedInstance.createAllPayPeriodsWith(lastPayDate: lastPayDate, payPeriodLength: payPeriodLength, masterBudget: masterBudget)
         case 2:
-            determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay: <#T##Int#>, secondSpecificDay: <#T##Int#>, startDate: lastPayDate )
+            if let firstDay = firstSelectedDay, let secondDay = secondSelectedDay {
+            determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay: firstDay, secondSpecificDay: secondDay, startDate: lastPayDate)
+            }
         default:
             return
         }
@@ -191,7 +195,8 @@ class CreateBudgetTableViewController: UITableViewController {
         let sixMonths = Date() + 6*30*60*60*24
         let firstTestDate = startDate + 60*60*24
         var currentTestDate = firstTestDate
-        for _ in 0...31 {
+        var counter = 1
+        while counter < 2 {
             let dayNumber = calendar.dateComponents([Calendar.Component.day], from: currentTestDate).day!
             if dayNumber == firstSpecificDay || dayNumber == secondSpecificDay {
                 endDate = currentTestDate - 60*60*24
@@ -199,12 +204,12 @@ class CreateBudgetTableViewController: UITableViewController {
                     if payperiod != nil {
                         if endDate < sixMonths {
                             self.determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay: firstSpecificDay, secondSpecificDay: secondSpecificDay, startDate: currentTestDate)
+                            counter += 1
                         } else {
-                            return
+                            counter += 1
                         }
                     }
                 }
-             return
             } else {
                 currentTestDate += 60*60*24
             }
@@ -238,7 +243,9 @@ class CreateBudgetTableViewController: UITableViewController {
         MasterBudgetController.sharedInstance.createBudgetWith(name: name) { (masterBudget) in
             if let masterBudget = masterBudget {
                 self.masterBudget = masterBudget
-                self.checkForRecordType()
+                DispatchQueue.main.async {
+                    self.checkForRecordType()
+                }
             }
         }
         // in the completion, we need check the Index for income/expense
@@ -321,6 +328,21 @@ extension CreateBudgetTableViewController: UIPickerViewDataSource, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return customPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        let indexpath = IndexPath(item: row, section: component)
+//        firstSelectedDay = customPickerData[IndexPath]
+        switch component{
+        case 0:
+            let firstDay = customPickerData[row]
+            firstSelectedDay = Int(firstDay)
+        case 1:
+            let secondDay = customPickerData[row]
+            secondSelectedDay = Int(secondDay)
+        default:
+            break
+        }
     }
     
 }

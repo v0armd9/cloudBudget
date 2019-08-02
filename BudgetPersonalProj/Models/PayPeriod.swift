@@ -56,8 +56,8 @@ extension CKRecord {
         self.setValue(payPeriod.recordReference, forKey: PayPeriodConstants.recordReferenceKey)
         self.setValue(payPeriod.startDate, forKey: PayPeriodConstants.startDateKey)
         self.setValue(payPeriod.endDate, forKey: PayPeriodConstants.endDateKey)
-        self.setValue(payPeriod.income, forKey: PayPeriodConstants.incomeKey)
-        self.setValue(payPeriod.expenses, forKey: PayPeriodConstants.expensesKey)
+//        self.setValue(payPeriod.income, forKey: PayPeriodConstants.incomeKey)
+//        self.setValue(payPeriod.expenses, forKey: PayPeriodConstants.expensesKey)
     }
 }
 

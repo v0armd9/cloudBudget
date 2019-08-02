@@ -313,7 +313,6 @@
                 <navigationController id="bQw-wr-6YM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Budgets" id="EZ3-Wc-GDa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zxA-lx-jKx">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
