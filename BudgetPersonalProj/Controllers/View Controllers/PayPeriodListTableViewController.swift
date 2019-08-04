@@ -14,35 +14,40 @@ class PayPeriodListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let budget = budget {
+            PayPeriodController.sharedInstance.fetchPayperiods(forMasterBudget: budget) { (payperiods) in
+                if let payperiods = payperiods {
+                    budget.payPeriods = payperiods
+                    budget.payPeriods.sort(by: { $0.startDate < $1.startDate})
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()                        
+                    }
+                }
+            }
+        }
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        return budget?.payPeriods.count ?? 0
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "payPeriodCell", for: indexPath)
+        
+        guard let payperiod = budget?.payPeriods[indexPath.row] else {return UITableViewCell()}
+        
+        cell.textLabel?.text = "\(payperiod.startDate.dateToFormattedString()) - \(payperiod.endDate.dateToFormattedString())"
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -79,14 +84,20 @@ class PayPeriodListTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toPayPeriodDetailView" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                let destinationVC = segue.destination as? Income_ExpenseListTableViewController,
+                let payperiod = budget?.payPeriods[indexPath.row]
+            else {return}
+            destinationVC.masterBudget = budget
+            destinationVC.payPeriod = payperiod
+            
+        }
     }
-    */
 
 }

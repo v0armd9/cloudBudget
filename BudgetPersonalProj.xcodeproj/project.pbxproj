@@ -12,6 +12,8 @@
 		2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6060D122E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld */; };
 		2C6060D522E7E95B005BD461 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060D422E7E95B005BD461 /* Assets.xcassets */; };
 		2C6060D822E7E95B005BD461 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060D622E7E95B005BD461 /* LaunchScreen.storyboard */; };
+		2C6AC12822F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AC12722F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift */; };
+		2C6AC12A22F5BC80004C98FA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AC12922F5BC80004C98FA /* DateExtension.swift */; };
 		2CC871E522E7EB86009F90F7 /* MasterBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E422E7EB86009F90F7 /* MasterBudget.swift */; };
 		2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E622E7EC38009F90F7 /* PayPeriod.swift */; };
 		2CC871E922E7EDDE009F90F7 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC871E822E7EDDE009F90F7 /* Income.swift */; };
@@ -34,6 +36,8 @@
 		2C6060D422E7E95B005BD461 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C6060D722E7E95B005BD461 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6060D922E7E95B005BD461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6AC12722F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+ExpenseListTableViewController.swift"; sourceTree = "<group>"; };
+		2C6AC12922F5BC80004C98FA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2CC871E422E7EB86009F90F7 /* MasterBudget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterBudget.swift; sourceTree = "<group>"; };
 		2CC871E622E7EC38009F90F7 /* PayPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPeriod.swift; sourceTree = "<group>"; };
 		2CC871E822E7EDDE009F90F7 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				2CF2BBD222F07D7200B06A9A /* PayPeriodController.swift */,
 				2CF2BBD422F07D8900B06A9A /* IncomeController.swift */,
 				2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */,
+				2C6AC12922F5BC80004C98FA /* DateExtension.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				2CF2BBC122EF4F9800B06A9A /* MasterListTableViewController.swift */,
 				2CF2BBC522EF6A7600B06A9A /* PayPeriodListTableViewController.swift */,
 				2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */,
+				2C6AC12722F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF2BBD722F07D9C00B06A9A /* ExpenseController.swift in Sources */,
+				2C6AC12A22F5BC80004C98FA /* DateExtension.swift in Sources */,
 				2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */,
 				2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */,
 				2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */,
@@ -259,6 +266,7 @@
 				2CF2BBC622EF6A7600B06A9A /* PayPeriodListTableViewController.swift in Sources */,
 				2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */,
 				2CF2BBC222EF4F9800B06A9A /* MasterListTableViewController.swift in Sources */,
+				2C6AC12822F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

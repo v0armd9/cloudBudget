@@ -9,316 +9,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/Model Controllers/MasterBudgetController.swift"
-            timestampString = "586453145.0005521"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "createBudgetWith(name:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/Model Controllers/MasterBudgetController.swift"
-            timestampString = "586453145.000948"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "createBudgetWith(name:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/Model Controllers/MasterBudgetController.swift"
-            timestampString = "586453145.001165"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "createBudgetWith(name:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/Model Controllers/MasterBudgetController.swift"
-            timestampString = "586453145.001375"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "createBudgetWith(name:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/Model Controllers/MasterBudgetController.swift"
-            timestampString = "586453145.001592"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "createBudgetWith(name:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.001811"
+            timestampString = "586582316.473359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.0018899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.0019439"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.001995"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002045"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002124"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002161"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002198"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.0022351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002272"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002309"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.0023479"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "askForIncomePriority()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "BudgetPersonalProj.CreateBudgetTableViewController.determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay: Swift.Int, secondSpecificDay: Swift.Int, startDate: Foundation.Date) -&gt; ()"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in BudgetPersonalProj.CreateBudgetTableViewController.askForIncomePriority() -&gt; ()"
                   moduleName = "BudgetPersonalProj"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marcus/Desktop/Desktop/DevMountianiOSCourse/PersonalCapstone/BudgetPersonalProj/BudgetPersonalProj/Controllers/View%20Controllers/CreateBudgetTableViewController.swift"
-                  timestampString = "586453145.424091"
+                  timestampString = "586477432.223011"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203"
-                  offsetFromSymbolStart = "2168">
+                  startingLineNumber = "311"
+                  endingLineNumber = "311"
+                  offsetFromSymbolStart = "84">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;BudgetPersonalProj.PayPeriod&gt;) -&gt; () in BudgetPersonalProj.CreateBudgetTableViewController.determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay: Swift.Int, secondSpecificDay: Swift.Int, startDate: Foundation.Date) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in BudgetPersonalProj.CreateBudgetTableViewController.askForIncomePriority() -&gt; ()"
                   moduleName = "BudgetPersonalProj"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/marcus/Desktop/Desktop/DevMountianiOSCourse/PersonalCapstone/BudgetPersonalProj/BudgetPersonalProj/Controllers/View%20Controllers/CreateBudgetTableViewController.swift"
-                  timestampString = "586453145.426138"
+                  timestampString = "586477432.2251281"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "195">
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "155">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -330,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.0023969"
+            timestampString = "586582316.474084"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -346,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002434"
+            timestampString = "586582316.474394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -362,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002494"
+            timestampString = "586582316.474674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002542"
+            timestampString = "586582316.4749449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -394,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002591"
+            timestampString = "586582316.475222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -410,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002638"
+            timestampString = "586582316.475495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -426,12 +154,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002679"
+            timestampString = "586582316.47576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BudgetPersonalProj.CreateBudgetTableViewController.createMasterIncomeWithPayDate(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "BudgetPersonalProj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcus/Desktop/Desktop/DevMountianiOSCourse/PersonalCapstone/BudgetPersonalProj/BudgetPersonalProj/Controllers/View%20Controllers/CreateBudgetTableViewController.swift"
+                  timestampString = "586477432.261464"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "1916">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;BudgetPersonalProj.Income&gt;) -&gt; () in BudgetPersonalProj.CreateBudgetTableViewController.createMasterIncomeWithPayDate(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "BudgetPersonalProj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marcus/Desktop/Desktop/DevMountianiOSCourse/PersonalCapstone/BudgetPersonalProj/BudgetPersonalProj/Controllers/View%20Controllers/CreateBudgetTableViewController.swift"
+                  timestampString = "586477432.2662261"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
+            timestampString = "586582316.476028"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -442,12 +218,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002717"
+            timestampString = "586582316.476295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -458,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002753"
+            timestampString = "586582316.476563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -474,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002789"
+            timestampString = "586582316.476835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -490,12 +266,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
-            timestampString = "586453145.002827"
+            timestampString = "586582316.4771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "determinePayPeriodLengthForSpecificDaysIncome(firstSpecificDay:secondSpecificDay:startDate:)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BudgetPersonalProj/Controllers/View Controllers/CreateBudgetTableViewController.swift"
+            timestampString = "586582316.4773771"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "createMasterIncomeWithPayDate(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

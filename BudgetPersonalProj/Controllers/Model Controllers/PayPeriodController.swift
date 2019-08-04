@@ -26,14 +26,13 @@ class PayPeriodController {
         while newEndDate <= sixMonths {
             createPayPeriod(withStartDate: newStartDate, endDate: newEndDate, masterBudget: masterBudget) { (payPeriod) in
                 if let payPeriod = payPeriod {
-                    newStartDate = newEndDate + 24*60*60
-                    newEndDate = newStartDate + payPeriodLength*60*60*24
                     masterBudget.payPeriods.append(payPeriod)
                 }
             }
+            newStartDate = newEndDate + 24*60*60
+            newEndDate = newStartDate + payPeriodLength*60*60*24
         }
     }
-    
     
     func createPayPeriod(withStartDate startDate: Date, endDate: Date, masterBudget: MasterBudget, completion: @escaping (PayPeriod?) -> Void) {
         let newPayPeriod = PayPeriod(startDate: startDate, endDate: endDate, masterBudget: masterBudget)
@@ -68,6 +67,7 @@ class PayPeriodController {
             guard let records = records else {completion(nil); return}
             let payPeriods = records.compactMap{ PayPeriod(record: $0, masterBudget: masterBudget)}
             masterBudget.payPeriods.append(contentsOf: payPeriods)
+            completion(payPeriods)
         }
     }
     
