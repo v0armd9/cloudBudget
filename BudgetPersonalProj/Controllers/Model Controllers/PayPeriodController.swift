@@ -18,10 +18,10 @@ class PayPeriodController {
     // CRUD: - Functions
     
     //Create Function
-    func createAllPayPeriodsWith(lastPayDate: Date, payPeriodLength: Double, masterBudget: MasterBudget) {
+    func createAllPayPeriodsWith(lastPayDate: Date, payPeriodLength: Int, masterBudget: MasterBudget) {
         var newStartDate = lastPayDate
-        var newEndDate = newStartDate + payPeriodLength*60*60*24
-        let sixMonths = lastPayDate + 6*30*24*60*60
+        var newEndDate = Calendar.current.date(byAdding: .day, value: payPeriodLength, to: newStartDate)!
+        let sixMonths = Calendar.current.date(byAdding: .day, value: 182, to: lastPayDate)!
         
         while newEndDate <= sixMonths {
             createPayPeriod(withStartDate: newStartDate, endDate: newEndDate, masterBudget: masterBudget) { (payPeriod) in
@@ -29,9 +29,8 @@ class PayPeriodController {
                     masterBudget.payPeriods.append(payPeriod)
                 }
             }
-            newStartDate = newEndDate + 24*60*60
-            newEndDate = newStartDate + payPeriodLength*60*60*24
-        }
+            newStartDate = Calendar.current.date(byAdding: .day, value: 1, to: newEndDate)!
+            newEndDate = Calendar.current.date(byAdding: .day, value: payPeriodLength, to: newStartDate)!        }
     }
     
     func createPayPeriod(withStartDate startDate: Date, endDate: Date, masterBudget: MasterBudget, completion: @escaping (PayPeriod?) -> Void) {

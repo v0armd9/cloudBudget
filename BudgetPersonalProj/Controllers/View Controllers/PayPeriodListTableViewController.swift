@@ -14,22 +14,23 @@ class PayPeriodListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         if let budget = budget {
             PayPeriodController.sharedInstance.fetchPayperiods(forMasterBudget: budget) { (payperiods) in
                 if let payperiods = payperiods {
                     budget.payPeriods = payperiods
                     budget.payPeriods.sort(by: { $0.startDate < $1.startDate})
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()                        
+                        self.tableView.reloadData()
                     }
                 }
             }
         }
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
 
     // MARK: - Table view data source

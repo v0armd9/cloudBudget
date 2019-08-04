@@ -16,6 +16,11 @@ class MasterListTableViewController: UITableViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        performFullSync(completion: nil)
+    }
+    
     func performFullSync(completion:((Bool) -> Void)?) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         MasterBudgetController.sharedInstance.fetchBudgets { (budgets) in
