@@ -66,10 +66,10 @@ class Income {
     convenience init?(record: CKRecord, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterIncome: Income?) {
         guard let name = record[IncomeConstants.nameKey] as? String,
         let payDate = record[IncomeConstants.payDateKey] as? Date,
-        let firstSpecificDay = record[IncomeConstants.firstSpecificDayKey] as? Int,
-        let secondSpecificDay = record[IncomeConstants.secondSpecificDayKey] as? Int,
         let amount = record[IncomeConstants.amountKey] as? Double
         else {return nil}
+        let firstSpecificDay = record[IncomeConstants.firstSpecificDayKey] as? Int
+        let secondSpecificDay = record[IncomeConstants.secondSpecificDayKey] as? Int
         
         self.init(name: name, payDate: payDate, firstSpecificDay: firstSpecificDay, secondSpecificDay: secondSpecificDay, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterIncome: masterIncome, recordID: record.recordID)
     }

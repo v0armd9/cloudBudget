@@ -132,7 +132,17 @@ class CreateBudgetTableViewController: UITableViewController {
         if recordTypeSegmentedControl.selectedSegmentIndex == 0 {
             // master income helper
             // payPeriod helper
-            askForIncomePriority()
+            if masterIncome == nil {
+                askForIncomePriority()
+            }  else {
+                self.createIncomeWithPayDate(completion: { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            }
             // add income to payperiods
         } else if recordTypeSegmentedControl.selectedSegmentIndex == 1 {
             // expense helper
@@ -362,14 +372,6 @@ extension CreateBudgetTableViewController {
         let supplementalAction = UIAlertAction(title: "Supplemental", style: .default) { (action) in
             if self.masterIncome == nil{
                 self.askForPrimary()
-            } else {
-                self.createIncomeWithPayDate(completion: { (success) in
-                    if success {
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                })
             }
         }
         
