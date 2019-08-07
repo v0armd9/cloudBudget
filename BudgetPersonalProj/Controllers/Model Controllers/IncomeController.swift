@@ -34,7 +34,6 @@ class IncomeController {
     
     func createMasterIncomeWith(name: String, paydate: Date?, firstSpecificDay: Int?, secondSpecificDay: Int?, amount: Double, masterBudget: MasterBudget, completion: @escaping (Income?) -> Void) {
         let newMasterIncome = Income(name: name, payDate: paydate, firstSpecificDay: firstSpecificDay, secondSpecificDay: secondSpecificDay, amount: amount, payPeriod: nil, masterBudget: masterBudget, masterIncome: nil)
-        masterBudget.masterIncomeList.append(newMasterIncome)
         let record = CKRecord(income: newMasterIncome)
         privateDB.save(record) { (record, error) in
             if let error = error {

@@ -15,8 +15,9 @@ struct ExpenseConstants {
     static let masterBudgetReferenceKey = "MasterBudgetReference"
     static let masterExpenseReferenceKey = "MasterExpenseReference"
     fileprivate static let nameKey = "Name"
+    fileprivate static let billDateKey = "BillDate"
     fileprivate static let monthlyKey = "Monthly"
-    fileprivate static let weeklyKey = "Weekly"
+    fileprivate static let daysBetweenBillsKey = "DaysBetweenBills"
     fileprivate static let biWeeklyKey = "BiWeekly"
     fileprivate static let amountKey = "Amount"
 }
@@ -24,9 +25,9 @@ struct ExpenseConstants {
 class Expense {
     
     var name: String
-    var monthly: Date?
-    var weekly: Int?
-    var biWeekly: DateInterval?
+    var billDate: Date
+    var monthly: Int?
+    var daysBetweenBills: Int?
     var amount: Double
     var recordID: CKRecord.ID
     weak var payPeriod: PayPeriod?
@@ -48,11 +49,11 @@ class Expense {
         return CKRecord.Reference(recordID: masterExpense.recordID, action: .deleteSelf)
     }
     
-    init(name: String, monthly: Date?, weekly: Int?, biWeekly: DateInterval?, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(name: String, billDate: Date, monthly: Int?, daysBetweenBills: Int?, amount: Double, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.name = name
+        self.billDate = billDate
         self.monthly = monthly
-        self.weekly = weekly
-        self.biWeekly = biWeekly
+        self.daysBetweenBills = daysBetweenBills
         self.amount = amount
         self.recordID = recordID
         self.payPeriod = payPeriod
@@ -62,13 +63,13 @@ class Expense {
     
     convenience init?(record: CKRecord, payPeriod: PayPeriod?, masterBudget: MasterBudget?, masterExpense: Expense?) {
         guard let name = record[ExpenseConstants.nameKey] as? String,
-            let monthly = record[ExpenseConstants.monthlyKey] as? Date,
-            let weekly = record[ExpenseConstants.weeklyKey] as? Int,
-            let biWeekly = record[ExpenseConstants.biWeeklyKey] as? DateInterval,
+            let billDate = record[ExpenseConstants.billDateKey] as? Date,
             let amount = record[ExpenseConstants.amountKey] as? Double
         else {return nil}
+        let monthly = record[ExpenseConstants.monthlyKey] as? Int
+        let daysBetweenBills = record[ExpenseConstants.daysBetweenBillsKey] as? Int
         
-        self.init(name: name, monthly: monthly, weekly: weekly, biWeekly: biWeekly, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterExpense: masterExpense, recordID: record.recordID)
+        self.init(name: name,billDate: billDate, monthly: monthly, daysBetweenBills: daysBetweenBills, amount: amount, payPeriod: payPeriod, masterBudget: masterBudget, masterExpense: masterExpense, recordID: record.recordID)
     }
 }
 
@@ -79,9 +80,9 @@ extension CKRecord {
         self.setValue(expense.masterBudgetReference, forKey: ExpenseConstants.masterBudgetReferenceKey)
         self.setValue(expense.masterExpenseReference, forKey: ExpenseConstants.masterExpenseReferenceKey)
         self.setValue(expense.name, forKey: ExpenseConstants.nameKey)
+        self.setValue(expense.billDate, forKey: ExpenseConstants.billDateKey)
         self.setValue(expense.monthly, forKey: ExpenseConstants.monthlyKey)
-        self.setValue(expense.weekly, forKey: ExpenseConstants.weeklyKey)
-        self.setValue(expense.biWeekly, forKey: ExpenseConstants.biWeeklyKey)
+        self.setValue(expense.daysBetweenBills, forKey: ExpenseConstants.daysBetweenBillsKey)
         self.setValue(expense.amount, forKey: ExpenseConstants.amountKey)
     }
 }

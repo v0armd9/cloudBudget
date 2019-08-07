@@ -80,7 +80,7 @@ extension CKRecord {
         self.init(recordType: IncomeConstants.recordType, recordID: income.recordID)
         self.setValue(income.payPeriodReference, forKey: IncomeConstants.payPeriodReferenceKey)
         self.setValue(income.masterBudgetReference, forKey: IncomeConstants.masterBudgetReferenceKey)
-        self.setValue(income.masterIncome, forKey: IncomeConstants.masterIncomeReferenceKey)
+        self.setValue(income.masterIncomeReference, forKey: IncomeConstants.masterIncomeReferenceKey)
         self.setValue(income.name, forKey: IncomeConstants.nameKey)
         self.setValue(income.payDate, forKey: IncomeConstants.payDateKey)
         self.setValue(income.firstSpecificDay, forKey: IncomeConstants.firstSpecificDayKey)

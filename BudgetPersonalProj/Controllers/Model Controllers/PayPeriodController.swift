@@ -18,7 +18,7 @@ class PayPeriodController {
     // CRUD: - Functions
     
     //Create Function
-    func createAllPayPeriodsWith(lastPayDate: Date, payPeriodLength: Int, masterBudget: MasterBudget) {
+    func createAllPayPeriodsWith(lastPayDate: Date, payPeriodLength: Int, masterBudget: MasterBudget, completion: (Bool) -> Void) {
         var newStartDate = lastPayDate
         var newEndDate = Calendar.current.date(byAdding: .day, value: payPeriodLength, to: newStartDate)!
         let sixMonths = Calendar.current.date(byAdding: .day, value: 182, to: lastPayDate)!
@@ -27,15 +27,17 @@ class PayPeriodController {
             createPayPeriod(withStartDate: newStartDate, endDate: newEndDate, masterBudget: masterBudget) { (payPeriod) in
                 if let payPeriod = payPeriod {
                     masterBudget.payPeriods.append(payPeriod)
+                    
                 }
             }
             newStartDate = Calendar.current.date(byAdding: .day, value: 1, to: newEndDate)!
-            newEndDate = Calendar.current.date(byAdding: .day, value: payPeriodLength, to: newStartDate)!        }
+            newEndDate = Calendar.current.date(byAdding: .day, value: payPeriodLength, to: newStartDate)!
+        }
+        completion(true)
     }
     
     func createPayPeriod(withStartDate startDate: Date, endDate: Date, masterBudget: MasterBudget, completion: @escaping (PayPeriod?) -> Void) {
         let newPayPeriod = PayPeriod(startDate: startDate, endDate: endDate, masterBudget: masterBudget)
-        masterBudget.payPeriods.append(newPayPeriod)
         let record = CKRecord(payPeriod: newPayPeriod)
         privateDB.save(record) { (record, error) in
             if let error = error {

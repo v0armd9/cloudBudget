@@ -232,7 +232,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Budget" id="rSx-Fg-jsU">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Kb2-ue-rbD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kb2-ue-rbD"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="xz0-QO-LUm" id="7M5-Qo-2R3"/>
@@ -250,6 +250,10 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LzS-ZD-IdO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="OnG-8S-Oc8">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </objects>
             <point key="canvasLocation" x="-484.05797101449281" y="-570.53571428571422"/>
         </scene>
