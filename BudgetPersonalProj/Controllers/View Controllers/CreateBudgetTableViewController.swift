@@ -136,9 +136,6 @@ class CreateBudgetTableViewController: UITableViewController {
                 askForIncomePriority()
             }  else {
                 if timeframeSegmentedControl.selectedSegmentIndex == 0 || timeframeSegmentedControl.selectedSegmentIndex == 1 {
-                    
-                }
-                else if timeframeSegmentedControl.selectedSegmentIndex == 2 {
                     self.createIncomeWithPayDate(completion: { (success) in
                         if success {
                             DispatchQueue.main.async {
@@ -146,6 +143,10 @@ class CreateBudgetTableViewController: UITableViewController {
                             }
                         }
                     })
+                    
+                }
+                else if timeframeSegmentedControl.selectedSegmentIndex == 2 {
+                    
                 }
             }
             // add income to payperiods
@@ -236,6 +237,7 @@ class CreateBudgetTableViewController: UITableViewController {
                 masterBudget.masterIncomeList.append(income)
                 self.incomeForTableView = masterBudget.masterIncomeList
                 self.suplementalIncome?.append(income)
+                createIncomeFrom(masterIncome: income, startDate: income.payDate, timeframe: <#T##Int#>)
                 DispatchQueue.main.async {
                     self.budgetNameTextField.text = ""
                     self.recordNameTextField.text = ""
@@ -299,7 +301,6 @@ class CreateBudgetTableViewController: UITableViewController {
         }
     }
     
-    
     func generatePayPeriods() {
         guard let masterBudget = masterBudget,
         let masterIncome = masterIncome
@@ -311,14 +312,14 @@ class CreateBudgetTableViewController: UITableViewController {
             payPeriodLength = 6
             PayPeriodController.sharedInstance.createAllPayPeriodsWith(lastPayDate: lastPayDate, payPeriodLength: payPeriodLength, masterBudget: masterBudget) { (success) in
                 if success {
-                    addPrimaryIncomeWithPayDateToPayPeriods(masterIncome: masterIncome, masterBudget: masterBudget)
+                    self.addPrimaryIncomeWithPayDateToPayPeriods(masterIncome: masterIncome, masterBudget: masterBudget)
                 }
             }
         case 1:
             payPeriodLength = 13
             PayPeriodController.sharedInstance.createAllPayPeriodsWith(lastPayDate: lastPayDate, payPeriodLength: payPeriodLength, masterBudget: masterBudget) { (success) in
                 if success {
-                    addPrimaryIncomeWithPayDateToPayPeriods(masterIncome: masterIncome, masterBudget: masterBudget)
+                    self.addPrimaryIncomeWithPayDateToPayPeriods(masterIncome: masterIncome, masterBudget: masterBudget)
                 }
             }
         case 2:
@@ -399,13 +400,23 @@ class CreateBudgetTableViewController: UITableViewController {
         }
     }
     
-    func addSupplementalIncomeToPayPeriods() {
+    func addSupplementalIncomeToPayPeriods(masterIncome: Income, startDate: Date) {
         var timeFrameLength: Int
+        let calendar = Calendar.current
+        guard let masterBudget = masterBudget
+            else {return}
+        let payPeriods = masterBudget.payPeriods
+        let sixMonthsFromStartDate = calendar.date(byAdding: .day, value: 182, to: Date())!
+        
+        
         switch timeframeSegmentedControl.selectedSegmentIndex {
         case 0:
-            timeFrameLength = 6
+            timeFrameLength = 7
+            createIncomeFrom(masterIncome: masterIncome, startDate: startDate, timeframe: timeFrameLength)
+            
+            
         case 1:
-            timeFrameLength = 13
+            timeFrameLength = 14
         case 2:
             if let firstDay = firstSelectedDay, let secondDay = secondSelectedDay {
             }
@@ -414,6 +425,38 @@ class CreateBudgetTableViewController: UITableViewController {
         }
     }
     
+    func createIncomeFrom(masterIncome: Income, startDate: Date, timeframe: Int) {
+        guard let masterBudget = masterBudget else {return}
+        let startDate = startDate
+        let calendar = Calendar.current
+        let sixMonthsFromDate = calendar.date(byAdding: .day, value: 182, to: Date())!
+        let firstTestDate = calendar.date(byAdding: .day, value: 1, to: startDate)!
+        var isDone = false
+        for payPeriod in masterBudget.payPeriods {
+            let payPeriodInterval = DateInterval(start: payPeriod.startDate, end: payPeriod.endDate)
+            if payPeriodInterval.contains(startDate) {
+                IncomeController.sharedInstance.createIncomeWith(name: masterIncome.name, payDate: startDate, firstSpecificDay: nil, secondSpecificDay: nil, amount: masterIncome.amount, payPeriod: payPeriod, masterIncome: masterIncome) { (income) in
+                    if let income = income {
+                        payPeriod.income.append(income)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+        while !isDone {
+            let dayNumber = calendar.dateComponents([Calendar.Component.day], from: currentTestDate).day!
+            print(dayNumber)
+            print(currentTestDate)
+            if startDate < sixMonthsFromDate {
+                let newStartDate = calendar.date(byAdding: .day, value: timeframe, to: startDate)!
+                self.createIncomeFrom(masterIncome: masterIncome, startDate: newStartDate, timeframe: timeframe)
+                isDone = true
+                
+            } else {
+                isDone = true
+            }
+        }
+    }
     
     func createExpenseWithSpecificDayFrom(masterExpense: Expense, startDate: Date) {
         guard let masterBudget = masterBudget else {return}
@@ -459,10 +502,9 @@ class CreateBudgetTableViewController: UITableViewController {
         }
     }
     
-
     func generateNewMasterBudget() {
         guard let name = budgetNameTextField.text, name != "" else {return}
-      // Generate a master budget
+        // Generate a master budget
         MasterBudgetController.sharedInstance.createBudgetWith(name: name) { (masterBudget) in
             if let masterBudget = masterBudget {
                 self.masterBudget = masterBudget
@@ -474,6 +516,7 @@ class CreateBudgetTableViewController: UITableViewController {
         // in the completion, we need check the Index for income/expense
         
     }
+
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -541,7 +584,7 @@ extension CreateBudgetTableViewController {
                         self.budgetNameTextField.isHidden = true
                         self.recordNameTextField.text = ""
                         self.recordAmountTextField.text = ""
-                        guard let masterIncome = self.masterIncome else {return}
+                       // guard let masterIncome = self.masterIncome else {return}
                         masterBudget.masterIncomeList.append(income)
                         self.tableView.reloadData()
                         self.generatePayPeriods()
