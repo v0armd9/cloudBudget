@@ -232,11 +232,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Budget" id="rSx-Fg-jsU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Zr0-7L-uzc">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="3j7-UP-gby" id="WWH-tq-VEN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kb2-ue-rbD"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="xz0-QO-LUm" id="7M5-Qo-2R3"/>
                         <outlet property="budgetNameTextField" destination="ZA5-WJ-e8g" id="JJf-pV-dPC"/>
+                        <outlet property="cancelButton" destination="Zr0-7L-uzc" id="Yql-b6-0HX"/>
                         <outlet property="customDateLabel" destination="oqF-uw-MCw" id="u2S-Lg-NU5"/>
                         <outlet property="customDayPicker" destination="GLr-vd-b8L" id="k6m-9F-cge"/>
                         <outlet property="dateLabel" destination="GGL-gE-JJh" id="TyC-eK-Q9X"/>
