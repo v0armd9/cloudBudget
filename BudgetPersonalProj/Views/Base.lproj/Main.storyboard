@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -237,7 +236,11 @@
                                 <action selector="cancelButtonTapped:" destination="3j7-UP-gby" id="WWH-tq-VEN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kb2-ue-rbD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kb2-ue-rbD">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="3j7-UP-gby" id="PqY-vd-jDv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="xz0-QO-LUm" id="7M5-Qo-2R3"/>
@@ -250,6 +253,7 @@
                         <outlet property="recordAmountTextField" destination="jke-to-hUk" id="NZE-uz-NAL"/>
                         <outlet property="recordNameTextField" destination="SWJ-4w-sxV" id="RwU-5e-8IC"/>
                         <outlet property="recordTypeSegmentedControl" destination="GGb-sb-cVD" id="ehq-vZ-8JI"/>
+                        <outlet property="saveButton" destination="Kb2-ue-rbD" id="5jE-2G-0Xb"/>
                         <outlet property="secondCustomDateLabel" destination="ugZ-LB-RtB" id="1Kb-o4-YXV"/>
                         <outlet property="timeFrameLabel" destination="Eug-BZ-dV7" id="Fee-Tf-OHU"/>
                         <outlet property="timeframeSegmentedControl" destination="qVZ-aj-it0" id="9V7-RV-76f"/>
@@ -285,7 +289,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Rzh-6o-vBH" kind="show" id="DNa-QG-YRf"/>
+                                    <segue destination="Apk-7M-Sv3" kind="show" identifier="toPayPeriodDetail" id="rX4-g0-fYV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -302,20 +306,80 @@
             </objects>
             <point key="canvasLocation" x="6" y="173"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="VuW-b8-bGb">
+        <!--Income Expense List Table View Controller-->
+        <scene sceneID="VA7-XK-sma">
             <objects>
-                <viewController id="Rzh-6o-vBH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bUN-l7-lJs">
+                <tableViewController id="Apk-7M-Sv3" customClass="Income_ExpenseListTableViewController" customModule="BudgetPersonalProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TAF-t5-JvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Jk4-ER-6xN"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lwq-dX-JEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="jhy-1W-Dle">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oCi-S3-sJp">
+                                    <rect key="frame" x="25.5" y="7" width="363" height="30"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Payperiod Rollover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcH-al-jbc">
+                                            <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-HQ-njY">
+                                            <rect key="frame" x="184" y="0.0" width="179" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="oCi-S3-sJp" firstAttribute="centerX" secondItem="jhy-1W-Dle" secondAttribute="centerX" id="67o-nj-uiM"/>
+                                <constraint firstItem="oCi-S3-sJp" firstAttribute="centerY" secondItem="jhy-1W-Dle" secondAttribute="centerY" id="qcT-Vd-a9X"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" textLabel="VDA-yB-ff6" detailTextLabel="kfT-0r-tgw" style="IBUITableViewCellStyleValue1" id="Ca7-qc-vry">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ca7-qc-vry" id="ITA-rt-PbZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VDA-yB-ff6">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kfT-0r-tgw">
+                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Apk-7M-Sv3" id="uyR-O1-BGe"/>
+                            <outlet property="delegate" destination="Apk-7M-Sv3" id="nQw-XL-RY1"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="rollOverText" destination="5Hd-HQ-njY" id="S8N-DM-ItA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNQ-39-gLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="461"/>
+            <point key="canvasLocation" x="903" y="173"/>
         </scene>
         <!--Budgets-->
         <scene sceneID="bKw-OF-OaZ">

@@ -10,8 +10,31 @@ import UIKit
 
 class Income_ExpenseListTableViewController: UITableViewController {
     
+    @IBOutlet weak var rollOverText: UITextField!
+    
     var masterBudget: MasterBudget?
-    var payPeriod: PayPeriod?
+    var payPeriod: PayPeriod? {
+        didSet {
+            IncomeController.sharedInstance.fetchIncome(forPayPeriod: payPeriod!) { (income) in
+                if let income = income {
+                    self.payPeriod?.income = income
+                    DispatchQueue.main.async {
+                        self.loadViewIfNeeded()
+                        self.rollOverText.text = String(self.payPeriod!.lastPayPeriodTotal)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            ExpenseController.sharedInstance.fetchExpense(forPayPeriod: payPeriod!) { (expenses) in
+                if let expenses = expenses {
+                    self.payPeriod?.expenses = expenses
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +62,7 @@ class Income_ExpenseListTableViewController: UITableViewController {
         case 1:
             numberOfRows = payPeriod.expenses.count
         case 2:
-            //toDo
-            numberOfRows = 0
+            numberOfRows = 1
         default:
             numberOfRows = 0
         }
@@ -49,18 +71,21 @@ class Income_ExpenseListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath)
         guard let payPeriod = payPeriod
         else {return UITableViewCell()}
-        let income = payPeriod.income[indexPath.row]
-        let expense = payPeriod.expenses[indexPath.row]
         switch indexPath.section {
         case 0:
+            let income = payPeriod.income[indexPath.row]
             cell.textLabel?.text = income.name
+            cell.detailTextLabel?.text = String(income.amount)
         case 1:
+            let expense = payPeriod.expenses[indexPath.row]
             cell.textLabel?.text = expense.name
+            cell.detailTextLabel?.text = String(expense.amount)
         case 2:
-            cell.textLabel?.text = income.name
+            cell.textLabel?.text = "Total:"
+            cell.detailTextLabel?.text = String(payPeriod.payPeriodTotal)
         default:
             break
         }

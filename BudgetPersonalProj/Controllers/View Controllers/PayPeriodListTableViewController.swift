@@ -10,21 +10,23 @@ import UIKit
 
 class PayPeriodListTableViewController: UITableViewController {
     
-    var budget: MasterBudget?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let budget = budget {
-            PayPeriodController.sharedInstance.fetchPayperiods(forMasterBudget: budget) { (payperiods) in
+    var budget: MasterBudget? {
+        didSet {
+            PayPeriodController.sharedInstance.fetchPayperiods(forMasterBudget: budget!) { (payperiods) in
                 if let payperiods = payperiods {
-                    budget.payPeriods = payperiods
-                    budget.payPeriods.sort(by: { $0.startDate < $1.startDate})
+                    self.budget!.payPeriods = payperiods
                     DispatchQueue.main.async {
+                        self.budget?.payPeriods = payperiods
+                        self.budget!.payPeriods.sort(by: { $0.startDate < $1.startDate})
                         self.tableView.reloadData()
                     }
                 }
             }
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.reloadData()
     }
     
@@ -90,15 +92,13 @@ class PayPeriodListTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPayPeriodDetailView" {
+        if segue.identifier == "toPayPeriodDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow,
                 let destinationVC = segue.destination as? Income_ExpenseListTableViewController,
                 let payperiod = budget?.payPeriods[indexPath.row]
             else {return}
             destinationVC.masterBudget = budget
             destinationVC.payPeriod = payperiod
-            
         }
     }
-
 }

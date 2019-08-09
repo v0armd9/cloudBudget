@@ -23,6 +23,7 @@ class CreateBudgetTableViewController: UITableViewController {
     @IBOutlet weak var customDateLabel: UILabel!
     @IBOutlet weak var secondCustomDateLabel: UILabel!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
     var masterBudget: MasterBudget?
@@ -41,6 +42,32 @@ class CreateBudgetTableViewController: UITableViewController {
         updateViewsForTimeFrame()
         customDayPicker.delegate = self
         customDayPicker.dataSource = self
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        if let masterBudget = masterBudget {
+            masterBudget.payPeriods.sort(by: { $0.startDate < $1.startDate})
+            var lastPayPeriodTotal = 0.0
+            for payperiod in masterBudget.payPeriods {
+                var incomeTotal = 0.0
+                var expensesTotal = 0.0
+                for income in payperiod.income {
+                    incomeTotal += income.amount
+                }
+                for expense in payperiod.expenses {
+                    expensesTotal += expense.amount
+                    print(expensesTotal)
+                }
+                let thisPayPeriodTotal = lastPayPeriodTotal + incomeTotal - expensesTotal
+                PayPeriodController.sharedInstance.updatePayPeriodWith(masterBudget: masterBudget, payPeriod: payperiod, totalFromLast: lastPayPeriodTotal, totalForThisPayPeriod: thisPayPeriodTotal) { (success) in
+                    if success {
+                        print("successfully updated totals for payperiod: \(payperiod.recordID)")
+                    }
+                }
+                lastPayPeriodTotal = thisPayPeriodTotal
+            }
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -155,8 +182,6 @@ class CreateBudgetTableViewController: UITableViewController {
                 }
             }
         }
-        // in the completion, we need check the Index for income/expense
-        
     }
     
     func checkForRecordType() {
@@ -488,20 +513,23 @@ class CreateBudgetTableViewController: UITableViewController {
         var newStartDate = startDate
         let sixMonths = Calendar.current.date(byAdding: .day, value: 182, to: Date())!
         guard let masterBudget = masterBudget else {return}
-        for payPeriod in masterBudget.payPeriods {
+        masterBudget.payPeriods.sort(by: { $0.startDate < $1.startDate})
+        for (index, payPeriod) in masterBudget.payPeriods.enumerated() {
+            print("Pay period: \(index) \(payPeriod.startDate)")
             let dateInterval = DateInterval(start: payPeriod.startDate, end: payPeriod.endDate)
-            if dateInterval.contains(startDate) {
-                while newStartDate <= sixMonths {
+            if dateInterval.contains(newStartDate) {
+                if newStartDate <= sixMonths {
+                    print("expense created")
                     ExpenseController.sharedInstance.createExpenseWith(name: masterExpense.name, billDate: newStartDate, monthly: nil, daysBetweenBills: timeframe, amount: masterExpense.amount, payPeriod: payPeriod, masterExpense: masterExpense) { (expense) in
                         if let expense = expense {
-                            payPeriod.expenses.append(expense)
                             DispatchQueue.main.async {
+                                payPeriod.expenses.append(expense)
                                 self.tableView.reloadData()
                             }
                         }
                     }
-                    newStartDate = Calendar.current.date(byAdding: .day, value: timeframe, to: newStartDate)!
                 }
+                newStartDate = Calendar.current.date(byAdding: .day, value: timeframe, to: newStartDate)!
             }
         }
     }
@@ -524,11 +552,10 @@ class CreateBudgetTableViewController: UITableViewController {
             if payPeriodInterval.contains(startDate) {
                 ExpenseController.sharedInstance.createExpenseWith(name: name, billDate: startDate, monthly: specificDay, daysBetweenBills: nil, amount: amount, payPeriod: payPeriod, masterExpense: masterExpense) { (expense) in
                     if let expense = expense {
-                        payPeriod.expenses.append(expense)
                         DispatchQueue.main.async {
+                            payPeriod.expenses.append(expense)
                             self.tableView.reloadData()
                         }
-                        
                     }
                 }
             }

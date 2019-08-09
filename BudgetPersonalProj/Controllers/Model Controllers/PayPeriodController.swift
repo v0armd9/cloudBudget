@@ -76,4 +76,34 @@ class PayPeriodController {
         }
     }
     
+    func updatePayPeriodWith(masterBudget: MasterBudget, payPeriod: PayPeriod, totalFromLast: Double, totalForThisPayPeriod: Double, completion: @escaping(Bool) -> Void) {
+        payPeriod.lastPayPeriodTotal = totalFromLast
+        payPeriod.payPeriodTotal = totalForThisPayPeriod
+        payPeriod.masterBudget = masterBudget
+        let recordToSave = CKRecord(payPeriod: payPeriod)
+        
+        CKContainer.default().privateCloudDatabase.fetch(withRecordID: payPeriod.recordID) { (record, error) in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                completion(false)
+                return
+            }
+            
+            let operation = CKModifyRecordsOperation(recordsToSave: [recordToSave], recordIDsToDelete: nil)
+
+            operation.savePolicy = .changedKeys
+            operation.queuePriority = .high
+            operation.qualityOfService = .userInitiated
+            operation.modifyRecordsCompletionBlock = { (records, recordID, error) in
+                if let error = error {
+                    print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
+                    completion(false)
+                    return
+                }
+                
+                completion(true)
+            }
+            CKContainer.default().privateCloudDatabase.add(operation)
+        }
+    }
 }
