@@ -49,10 +49,10 @@ class ExpenseController {
     func fetchExpense(forPayPeriod payPeriod: PayPeriod, completion: @escaping([Expense]?) -> Void) {
         let payPeriodReference = payPeriod.recordID
         let payPeriodPredicate = NSPredicate(format: "%K == %@", ExpenseConstants.payPeriodReferenceKey, payPeriodReference)
-        let expenseIDs = payPeriod.expenses.compactMap( {$0.recordID} )
-        let avoidDuplicatesPredicate = NSPredicate(format: "NOT(recordID IN %@)", expenseIDs)
-        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [payPeriodPredicate, avoidDuplicatesPredicate])
-        let query = CKQuery(recordType: ExpenseConstants.recordType, predicate: compoundPredicate)
+//        let expenseIDs = payPeriod.expenses.compactMap( {$0.recordID} )
+//        let avoidDuplicatesPredicate = NSPredicate(format: "NOT(recordID IN %@)", expenseIDs)
+//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [payPeriodPredicate, avoidDuplicatesPredicate])
+        let query = CKQuery(recordType: ExpenseConstants.recordType, predicate: payPeriodPredicate)
         privateDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription) /n---/n \(error)")
@@ -61,7 +61,7 @@ class ExpenseController {
             }
             guard let records = records else {completion(nil); return}
             let expenses = records.compactMap { Expense(record: $0, payPeriod: payPeriod, masterBudget: nil, masterExpense: nil)}
-            payPeriod.expenses.append(contentsOf: expenses)
+//            payPeriod.expenses = expenses
             completion(expenses)
         }
     }

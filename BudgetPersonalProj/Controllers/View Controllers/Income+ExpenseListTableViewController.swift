@@ -18,18 +18,15 @@ class Income_ExpenseListTableViewController: UITableViewController {
             IncomeController.sharedInstance.fetchIncome(forPayPeriod: payPeriod!) { (income) in
                 if let income = income {
                     self.payPeriod?.income = income
-                    DispatchQueue.main.async {
-                        self.loadViewIfNeeded()
-                        self.rollOverText.text = String(self.payPeriod!.lastPayPeriodTotal)
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-            ExpenseController.sharedInstance.fetchExpense(forPayPeriod: payPeriod!) { (expenses) in
-                if let expenses = expenses {
-                    self.payPeriod?.expenses = expenses
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    ExpenseController.sharedInstance.fetchExpense(forPayPeriod: self.payPeriod!) { (expenses) in
+                        if let expenses = expenses {
+                            self.payPeriod?.expenses = expenses
+                            DispatchQueue.main.async {
+                                self.loadViewIfNeeded()
+                                self.rollOverText.text = String(self.payPeriod!.lastPayPeriodTotal)
+                                self.tableView.reloadData()
+                            }
+                        }
                     }
                 }
             }
@@ -66,6 +63,7 @@ class Income_ExpenseListTableViewController: UITableViewController {
         default:
             numberOfRows = 0
         }
+        print(section, numberOfRows)
         return numberOfRows
     }
 
