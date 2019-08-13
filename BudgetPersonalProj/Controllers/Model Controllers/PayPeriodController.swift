@@ -55,7 +55,7 @@ class PayPeriodController {
         }
     }
     
-    func createPayPeriodsForSpecificDaysIncome(firstDay: Int, secondDay: Int, startDate: Date, masterIncome: Income, masterBudget: MasterBudget) {
+    func createPayPeriodsForSpecificDaysIncome(firstDay: Int, secondDay: Int, startDate: Date, masterIncome: Income, masterBudget: MasterBudget, completion: @escaping(Bool) -> Void) {
         let maximumDay: Int = [firstDay, secondDay].max() ?? firstDay
         let calendar = Calendar.current
         var endDate: Date
@@ -81,10 +81,15 @@ class PayPeriodController {
                         }
                     }
                     if currentTestDate < sixMonthsOut {
-                        self.createPayPeriodsForSpecificDaysIncome(firstDay: firstDay, secondDay: secondDay, startDate: newStartDate, masterIncome: masterIncome, masterBudget: masterBudget)
+                        self.createPayPeriodsForSpecificDaysIncome(firstDay: firstDay, secondDay: secondDay, startDate: newStartDate, masterIncome: masterIncome, masterBudget: masterBudget, completion: { (success) in
+                            if success {
+                                completion(true)
+                            }
+                        })
                         isDone = true
                     } else {
                         isDone = true
+                        completion(true)
                     }
                 } else {
                     currentTestDate = calendar.date(byAdding: .day, value: 1, to: currentTestDate)!
@@ -102,10 +107,15 @@ class PayPeriodController {
                     }
                 }
                 if endDate < sixMonthsOut {
-                    self.createPayPeriodsForSpecificDaysIncome(firstDay: firstDay, secondDay: secondDay, startDate: currentTestDate, masterIncome: masterIncome, masterBudget: masterBudget)
+                    self.createPayPeriodsForSpecificDaysIncome(firstDay: firstDay, secondDay: secondDay, startDate: currentTestDate, masterIncome: masterIncome, masterBudget: masterBudget, completion: { (success) in
+                        if success {
+                            completion(true)
+                        }
+                    })
                     isDone = true
                 } else {
                     isDone = true
+                    completion(true)
                 }
             } else {
                 currentTestDate = calendar.date(byAdding: .day, value: 1, to: currentTestDate)!

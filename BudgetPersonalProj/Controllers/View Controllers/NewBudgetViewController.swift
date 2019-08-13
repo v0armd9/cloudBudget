@@ -19,6 +19,9 @@ class NewBudgetViewController: UIViewController, CAAnimationDelegate, UITextFiel
         super.viewDidLoad()
         createGradientView()
         budgetNameTextField.delegate = self
+        createButton.layer.cornerRadius = createButton.frame.height/2
+        createButton.layer.borderWidth = 0.5
+        createButton.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +56,9 @@ class NewBudgetViewController: UIViewController, CAAnimationDelegate, UITextFiel
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.endEditing(false)
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = ""
     }
     
     func createGradientView() {
@@ -91,19 +97,16 @@ class NewBudgetViewController: UIViewController, CAAnimationDelegate, UITextFiel
             animateGradient()
         }
     }
-    
-   
-    
-    
 
-    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toIncomeView" {
-            let destinationVC = segue.destination as? Income_PayPeriodViewController
-            guard let masterBudget = newBudget else {return}
-            destinationVC?.masterBudget = masterBudget
+            guard let destinatioVC = segue.destination as? UINavigationController,
+            let masterBudget = newBudget,
+            let incomePayperiodVC = destinatioVC.topViewController as? Income_PayPeriodViewController
+                else {return}
+            incomePayperiodVC.masterBudget = masterBudget
         }
     }
  
