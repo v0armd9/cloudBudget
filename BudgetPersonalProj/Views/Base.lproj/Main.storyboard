@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6yF-Kl-Vio">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bQw-wr-6YM">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,15 +40,165 @@
                     <navigationItem key="navigationItem" title="Budgets" id="nhi-Lb-rNV">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="Vci-aL-tC2">
                             <connections>
-                                <segue destination="3j7-UP-gby" kind="show" id="UrQ-PV-ESc"/>
+                                <segue destination="3j7-UP-gby" kind="showDetail" id="UrQ-PV-ESc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="D6p-0H-RbJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="D6p-0H-RbJ">
+                            <connections>
+                                <segue destination="RMq-e9-0gr" kind="showDetail" id="WZs-8f-cl9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXB-f5-BQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1007" y="173"/>
+        </scene>
+        <!--New Budget View Controller-->
+        <scene sceneID="zny-sl-z2Z">
+            <objects>
+                <viewController id="RMq-e9-0gr" customClass="NewBudgetViewController" customModule="BudgetPersonalProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GP9-KP-QT3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name your budget..." textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uuy-bg-j4L">
+                                <rect key="frame" x="0.0" y="408" width="414" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ogz-ln-TQi"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oc-Nc-giD">
+                                <rect key="frame" x="151.5" y="506" width="111" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" name="Forrest"/>
+                                <state key="normal" title="Create Budget"/>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="RMq-e9-0gr" eventType="touchUpInside" id="GSa-YP-aj5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Oc-Nc-giD" firstAttribute="centerX" secondItem="uuy-bg-j4L" secondAttribute="centerX" id="1oG-Z6-IyB"/>
+                            <constraint firstItem="uuy-bg-j4L" firstAttribute="width" secondItem="GP9-KP-QT3" secondAttribute="width" id="4Bq-tD-XUW"/>
+                            <constraint firstItem="uuy-bg-j4L" firstAttribute="centerX" secondItem="FsP-PT-n3U" secondAttribute="centerX" id="lSn-YP-GJV"/>
+                            <constraint firstItem="uuy-bg-j4L" firstAttribute="centerY" secondItem="FsP-PT-n3U" secondAttribute="centerY" id="rMr-Ze-E1G"/>
+                            <constraint firstItem="5Oc-Nc-giD" firstAttribute="top" secondItem="uuy-bg-j4L" secondAttribute="bottom" constant="8" id="tyv-6O-T40"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FsP-PT-n3U"/>
+                    </view>
+                    <connections>
+                        <outlet property="budgetNameTextField" destination="uuy-bg-j4L" id="QXA-Xg-bPu"/>
+                        <outlet property="createButton" destination="5Oc-Nc-giD" id="TX2-Ul-Yji"/>
+                        <segue destination="DVF-fw-OjV" kind="presentation" identifier="toIncomeView" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="dci-rn-D4D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yyf-RL-7Dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1610" y="-621"/>
+        </scene>
+        <!--Income Pay Period View Controller-->
+        <scene sceneID="TMe-yf-m42">
+            <objects>
+                <viewController id="DVF-fw-OjV" customClass="Income_PayPeriodViewController" customModule="BudgetPersonalProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dNI-R5-tco">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q4h-dy-CkE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <color key="backgroundColor" name="DarkGrey"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Cf1-cg-NXx"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Weekly"/>
+                                    <segment title="Bi-Weekly"/>
+                                    <segment title="Specific Days"/>
+                                </segments>
+                                <color key="tintColor" name="Seafoam"/>
+                                <connections>
+                                    <action selector="timeFrameControlValueChanged:" destination="DVF-fw-OjV" eventType="valueChanged" id="9WF-9v-yiA"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How often are you paid?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxq-mn-wMY">
+                                <rect key="frame" x="20.5" y="59.5" width="373" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="Mint"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When was your last payday?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0u-ts-gyo">
+                                <rect key="frame" x="20.5" y="171" width="373" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="Mint"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EdG-ke-gS5">
+                                <rect key="frame" x="10.5" y="199.5" width="393" height="427.5"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="T9i-Ci-3Kr">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="149.5" id="CLc-wg-bJ0"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="587357876.984882">
+                                            <!--2019-08-13 02:57:56 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AD-JD-Oac">
+                                        <rect key="frame" x="0.0" y="150" width="393" height="203"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="203" id="EP5-hF-pgK"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hs5-q3-S5t">
+                                        <rect key="frame" x="0.0" y="352.5" width="393" height="75"/>
+                                        <color key="backgroundColor" name="Forrest"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="z8j-N9-Rr1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <state key="normal" title="Generate Payperiods">
+                                            <color key="titleColor" name="Mint"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="generateButtonTapped:" destination="DVF-fw-OjV" eventType="touchUpInside" id="XSa-F0-dJP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="DarkGrey"/>
+                        <constraints>
+                            <constraint firstItem="Q4h-dy-CkE" firstAttribute="width" secondItem="dNI-R5-tco" secondAttribute="width" id="3PM-GY-Q1L"/>
+                            <constraint firstItem="U0u-ts-gyo" firstAttribute="centerX" secondItem="89a-0p-TmA" secondAttribute="centerX" id="9QS-XE-Uu4"/>
+                            <constraint firstItem="Q4h-dy-CkE" firstAttribute="centerX" secondItem="89a-0p-TmA" secondAttribute="centerX" id="F8L-aL-xIj"/>
+                            <constraint firstItem="EdG-ke-gS5" firstAttribute="top" secondItem="U0u-ts-gyo" secondAttribute="bottom" constant="8" id="Ghm-Jz-eXO"/>
+                            <constraint firstItem="sxq-mn-wMY" firstAttribute="width" secondItem="dNI-R5-tco" secondAttribute="width" multiplier="0.9" id="K1D-6O-cOs"/>
+                            <constraint firstItem="Q4h-dy-CkE" firstAttribute="top" secondItem="sxq-mn-wMY" secondAttribute="bottom" constant="8" id="MAe-xM-KgW"/>
+                            <constraint firstItem="sxq-mn-wMY" firstAttribute="centerX" secondItem="89a-0p-TmA" secondAttribute="centerX" id="RZO-Pe-I8z"/>
+                            <constraint firstItem="U0u-ts-gyo" firstAttribute="width" secondItem="dNI-R5-tco" secondAttribute="width" multiplier="0.9" id="WpQ-dI-RCO"/>
+                            <constraint firstItem="Q4h-dy-CkE" firstAttribute="top" secondItem="89a-0p-TmA" secondAttribute="top" constant="44" id="clF-I2-TtD"/>
+                            <constraint firstItem="EdG-ke-gS5" firstAttribute="centerX" secondItem="89a-0p-TmA" secondAttribute="centerX" id="dcU-AR-va6"/>
+                            <constraint firstItem="EdG-ke-gS5" firstAttribute="width" secondItem="dNI-R5-tco" secondAttribute="width" multiplier="0.95" id="lu4-1w-fVu"/>
+                            <constraint firstItem="U0u-ts-gyo" firstAttribute="top" secondItem="Q4h-dy-CkE" secondAttribute="bottom" constant="33" id="qkc-XS-zce"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="89a-0p-TmA"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="T9i-Ci-3Kr" id="Bxd-1K-74u"/>
+                        <outlet property="generatePayPeriodButton" destination="hs5-q3-S5t" id="F7h-DI-Ukx"/>
+                        <outlet property="specificDaysPicker" destination="2AD-JD-Oac" id="pIm-3f-OM5"/>
+                        <outlet property="timeFrameControl" destination="Q4h-dy-CkE" id="BAF-6H-bCJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUK-2d-Jim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-867" y="-834"/>
         </scene>
         <!--New Budget-->
         <scene sceneID="hoc-dv-mHu">
@@ -265,7 +417,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="-484.05797101449281" y="-570.53571428571422"/>
+            <point key="canvasLocation" x="-188" y="-561"/>
         </scene>
         <!--Title-->
         <scene sceneID="EV1-XS-IIu">
@@ -398,22 +550,19 @@
             </objects>
             <point key="canvasLocation" x="-1928" y="173"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="gGR-Ln-far">
-            <objects>
-                <tabBarController id="6yF-Kl-Vio" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="11D-rH-e2A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="bQw-wr-6YM" kind="relationship" relationship="viewControllers" id="bwa-eL-htF"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mDF-yg-OUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2844" y="-202"/>
-        </scene>
     </scenes>
+    <resources>
+        <namedColor name="DarkGrey">
+            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Forrest">
+            <color red="0.1803921568627451" green="0.23529411764705882" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Mint">
+            <color red="0.63137254901960782" green="0.97254901960784312" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Seafoam">
+            <color red="0.49411764705882355" green="0.75686274509803919" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -55,6 +55,64 @@ class PayPeriodController {
         }
     }
     
+    func createPayPeriodsForSpecificDaysIncome(firstDay: Int, secondDay: Int, startDate: Date, masterIncome: Income, masterBudget: MasterBudget) {
+        let maximumDay: Int = [firstDay, secondDay].max() ?? firstDay
+        let calendar = Calendar.current
+        var endDate: Date
+        let sixMonthsOut = calendar.date(byAdding: .day, value: 182, to: Date())!
+        let firstTestDate = calendar.date(byAdding: .day, value: 1, to: startDate)!
+        var currentTestDate = firstTestDate
+        var isDone = false
+        while !isDone {
+            let dayNumber = calendar.dateComponents([Calendar.Component.day], from: currentTestDate).day!
+            let nextDay = calendar.date(byAdding: .day, value: 1, to: currentTestDate)!
+            let nextDayNumber = calendar.dateComponents([Calendar.Component.day], from: nextDay).day!
+            if dayNumber > nextDayNumber {
+                if dayNumber <= maximumDay {
+                    let newStartDate = calendar.date(byAdding: .day, value: 1, to: currentTestDate)!
+                    self.createPayPeriod(withStartDate: startDate, endDate: currentTestDate, masterBudget: masterBudget) { (payPeriod) in
+                        if let payPeriod = payPeriod {
+                            IncomeController.sharedInstance.createIncomeWith(name: masterIncome.name, payDate: payPeriod.startDate, firstSpecificDay: nil, secondSpecificDay: nil, amount: masterIncome.amount, payPeriod: payPeriod, masterIncome: masterIncome, completion: { (income) in
+                                if let income = income {
+                                    payPeriod.income.append(income)
+                                }
+                            })
+                            masterBudget.payPeriods.append(payPeriod)
+                        }
+                    }
+                    if currentTestDate < sixMonthsOut {
+                        self.createPayPeriodsForSpecificDaysIncome(firstDay: firstDay, secondDay: secondDay, startDate: newStartDate, masterIncome: masterIncome, masterBudget: masterBudget)
+                        isDone = true
+                    } else {
+                        isDone = true
+                    }
+                } else {
+                    currentTestDate = calendar.date(byAdding: .day, value: 1, to: currentTestDate)!
+                }
+            } else if dayNumber == firstDay || dayNumber == secondDay {
+                endDate = calendar.date(byAdding: .day, value: -1, to: currentTestDate)!
+                self.createPayPeriod(withStartDate: startDate, endDate: endDate, masterBudget: masterBudget) { (payPeriod) in
+                    if let payPeriod = payPeriod {
+                        IncomeController.sharedInstance.createIncomeWith(name: masterIncome.name, payDate: payPeriod.startDate, firstSpecificDay: nil, secondSpecificDay: nil, amount: masterIncome.amount, payPeriod: payPeriod, masterIncome: masterIncome, completion: { (income) in
+                            if let income = income {
+                                payPeriod.income.append(income)
+                            }
+                        })
+                        masterBudget.payPeriods.append(payPeriod)
+                    }
+                }
+                if endDate < sixMonthsOut {
+                    self.createPayPeriodsForSpecificDaysIncome(firstDay: firstDay, secondDay: secondDay, startDate: currentTestDate, masterIncome: masterIncome, masterBudget: masterBudget)
+                    isDone = true
+                } else {
+                    isDone = true
+                }
+            } else {
+                currentTestDate = calendar.date(byAdding: .day, value: 1, to: currentTestDate)!
+            }
+        }
+    }
+    
     // Read Function
     func fetchPayperiods(forMasterBudget masterBudget: MasterBudget, completion: @escaping ([PayPeriod]?) -> Void) {
         let masterBudgetReference = masterBudget.recordID

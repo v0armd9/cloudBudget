@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C6060CB22E7E956005BD461 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6060CA22E7E956005BD461 /* AppDelegate.swift */; };
 		2C6060D022E7E956005BD461 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060CE22E7E956005BD461 /* Main.storyboard */; };
-		2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C6060D122E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld */; };
 		2C6060D522E7E95B005BD461 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060D422E7E95B005BD461 /* Assets.xcassets */; };
 		2C6060D822E7E95B005BD461 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6060D622E7E95B005BD461 /* LaunchScreen.storyboard */; };
 		2C6AC12822F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6AC12722F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift */; };
@@ -26,13 +25,15 @@
 		2CF2BBD322F07D7200B06A9A /* PayPeriodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD222F07D7200B06A9A /* PayPeriodController.swift */; };
 		2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD422F07D8900B06A9A /* IncomeController.swift */; };
 		2CF2BBD722F07D9C00B06A9A /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */; };
+		580134A62301BE320014ABFE /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580134A52301BE320014ABFE /* colors.xcassets */; };
+		58BDFE2B23023B16000B605A /* NewBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BDFE2A23023B16000B605A /* NewBudgetViewController.swift */; };
+		58BDFE2D230259BE000B605A /* Income+PayPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BDFE2C230259BE000B605A /* Income+PayPeriodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C6060C722E7E956005BD461 /* BudgetPersonalProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetPersonalProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6060CA22E7E956005BD461 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C6060CF22E7E956005BD461 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C6060D222E7E956005BD461 /* BudgetPersonalProj.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetPersonalProj.xcdatamodel; sourceTree = "<group>"; };
 		2C6060D422E7E95B005BD461 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C6060D722E7E95B005BD461 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6060D922E7E95B005BD461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		2CF2BBD222F07D7200B06A9A /* PayPeriodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPeriodController.swift; sourceTree = "<group>"; };
 		2CF2BBD422F07D8900B06A9A /* IncomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
 		2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
+		580134A52301BE320014ABFE /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
+		58BDFE2A23023B16000B605A /* NewBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetViewController.swift; sourceTree = "<group>"; };
+		58BDFE2C230259BE000B605A /* Income+PayPeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+PayPeriodViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				2C6060CA22E7E956005BD461 /* AppDelegate.swift */,
+				580134A52301BE320014ABFE /* colors.xcassets */,
 				2C6060D422E7E95B005BD461 /* Assets.xcassets */,
 				2C6060D922E7E95B005BD461 /* Info.plist */,
-				2C6060D122E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -110,7 +114,6 @@
 			children = (
 				2C6060CE22E7E956005BD461 /* Main.storyboard */,
 				2C6060D622E7E95B005BD461 /* LaunchScreen.storyboard */,
-				2CF2BBCD22EFACBD00B06A9A /* Custom Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +146,8 @@
 				2CF2BBC522EF6A7600B06A9A /* PayPeriodListTableViewController.swift */,
 				2CF2BBCB22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift */,
 				2C6AC12722F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift */,
+				58BDFE2A23023B16000B605A /* NewBudgetViewController.swift */,
+				58BDFE2C230259BE000B605A /* Income+PayPeriodViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -164,13 +169,6 @@
 				2CF2BBC922EF6F5300B06A9A /* CloudKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2CF2BBCD22EFACBD00B06A9A /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C6060D822E7E95B005BD461 /* LaunchScreen.storyboard in Resources */,
+				580134A62301BE320014ABFE /* colors.xcassets in Resources */,
 				2C6060D522E7E95B005BD461 /* Assets.xcassets in Resources */,
 				2C6060D022E7E956005BD461 /* Main.storyboard in Resources */,
 			);
@@ -253,11 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF2BBD722F07D9C00B06A9A /* ExpenseController.swift in Sources */,
+				58BDFE2D230259BE000B605A /* Income+PayPeriodViewController.swift in Sources */,
 				2C6AC12A22F5BC80004C98FA /* DateExtension.swift in Sources */,
 				2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */,
 				2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */,
-				2C6060D322E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld in Sources */,
 				2CF2BBC422EF4FE600B06A9A /* MasterBudgetController.swift in Sources */,
+				58BDFE2B23023B16000B605A /* NewBudgetViewController.swift in Sources */,
 				2C6060CB22E7E956005BD461 /* AppDelegate.swift in Sources */,
 				2CF2BBCC22EFAC7A00B06A9A /* CreateBudgetTableViewController.swift in Sources */,
 				2CC871E522E7EB86009F90F7 /* MasterBudget.swift in Sources */,
@@ -468,19 +468,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2C6060D122E7E956005BD461 /* BudgetPersonalProj.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2C6060D222E7E956005BD461 /* BudgetPersonalProj.xcdatamodel */,
-			);
-			currentVersion = 2C6060D222E7E956005BD461 /* BudgetPersonalProj.xcdatamodel */;
-			path = BudgetPersonalProj.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 2C6060BF22E7E956005BD461 /* Project object */;
 }
