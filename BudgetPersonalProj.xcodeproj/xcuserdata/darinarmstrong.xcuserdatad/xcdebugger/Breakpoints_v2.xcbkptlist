@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/ExpenseViewController.swift"
-            timestampString = "587902202.635999"
+            timestampString = "587920532.503913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "createExpenseFrom(masterExpense:withTimeFrame:andStartDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/ExpenseViewController.swift"
-            timestampString = "587902202.6363029"
+            timestampString = "587920532.504281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "createExpenseFrom(masterExpense:withTimeFrame:andStartDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/ExpenseViewController.swift"
-            timestampString = "587902202.636354"
+            timestampString = "587920532.504508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "createExpenseFrom(masterExpense:withTimeFrame:andStartDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/ExpenseViewController.swift"
-            timestampString = "587902202.636394"
+            timestampString = "587920532.504759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "createExpenseFrom(masterExpense:withTimeFrame:andStartDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BudgetPersonalProj/Controllers/View Controllers/ExpenseViewController.swift"
-            timestampString = "587902202.636433"
+            timestampString = "587920532.5050451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "createExpenseFrom(masterExpense:withTimeFrame:andStartDate:)"
-            landmarkType = "7">
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "ExpenseViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -69,21 +69,26 @@ class Income_ExpenseListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath) as? IncomeExpenseTableViewCell else {return UITableViewCell()}
         guard let payPeriod = payPeriod
         else {return UITableViewCell()}
+        cell.isDoneButton.isHidden = false
         switch indexPath.section {
         case 0:
             let income = payPeriod.income[indexPath.row]
-            cell.textLabel?.text = income.name
-            cell.detailTextLabel?.text = String(income.amount)
+            cell.nameLabel.text = income.name
+            cell.amountLebel.text = String(income.amount)
+            cell.dayNumberLabel.text = income.payDate?.dateToFormattedString()
         case 1:
             let expense = payPeriod.expenses[indexPath.row]
-            cell.textLabel?.text = expense.name
-            cell.detailTextLabel?.text = String(expense.amount)
+            cell.nameLabel.text = expense.name
+            cell.amountLebel.text = String(expense.amount)
+            cell.dayNumberLabel.text = expense.billDate.dateToFormattedString()
         case 2:
-            cell.textLabel?.text = "Total:"
-            cell.detailTextLabel?.text = String(payPeriod.payPeriodTotal)
+            cell.nameLabel.text = "Remaining:"
+            cell.amountLebel.text = String(payPeriod.payPeriodTotal)
+            cell.dayNumberLabel.text = payPeriod.endDate.dateToFormattedString()
+            cell.isDoneButton.isHidden = true
         default:
             break
         }

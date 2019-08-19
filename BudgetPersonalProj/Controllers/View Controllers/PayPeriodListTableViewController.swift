@@ -47,7 +47,8 @@ class PayPeriodListTableViewController: UITableViewController {
         guard let payperiod = budget?.payPeriods[indexPath.row] else {return UITableViewCell()}
         
         cell.textLabel?.text = "\(payperiod.startDate.dateToFormattedString()) - \(payperiod.endDate.dateToFormattedString())"
-
+        cell.textLabel?.textColor = UIColor.mint
+        
         return cell
     }
 

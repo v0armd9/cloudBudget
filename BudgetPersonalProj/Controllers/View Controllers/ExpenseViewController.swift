@@ -22,6 +22,8 @@ class ExpenseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customDayPicker.delegate = self
+        customDayPicker.dataSource = self
         setUpViews()
     }
     
@@ -35,6 +37,11 @@ class ExpenseViewController: UIViewController {
     var primaryIncome: Income?
     var customPickerData = ["1","2", "3", "4", "5","6", "7", "8", "9","10", "11", "12", "13","14", "15", "16", "17","18", "19", "20", "21","22", "23", "24", "25","26", "27", "28", "29", "30", "31"]
     var firstSelectedDay: Int = 1
+    
+    @IBAction func timeFrameValueChanged(_ sender: UISegmentedControl) {
+        updateViewsForTimeFrame()
+    }
+    
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         guard let masterBudget = masterBudget else {navigationController?.popToRootViewController(animated: true); return}
@@ -90,9 +97,6 @@ class ExpenseViewController: UIViewController {
                             self.masterBudget?.masterExpenseList.append(expense)
                             self.showSuccess()
                         }
-                        DispatchQueue.main.async {
-                            self.showSuccess()
-                        }
                     }
                 }
             }
@@ -106,8 +110,6 @@ class ExpenseViewController: UIViewController {
                         self.createExpenseFrom(masterExpense: expense, withTimeFrame: timeFrame, andStartDate: expense.billDate)
                         DispatchQueue.main.async {
                             self.masterBudget?.masterExpenseList.append(expense)
-                        }
-                        DispatchQueue.main.async {
                             self.showSuccess()
                         }
                     }
@@ -149,12 +151,30 @@ class ExpenseViewController: UIViewController {
             self.successView.alpha = 0
         }) { (success) in
             if success {
-                self.successView.isHidden = true
+                DispatchQueue.main.async {
+                    self.successView.isHidden = true
+                }
             }
             self.nameTextField.text = ""
             self.amountTextField.text = ""
             self.datePicker.setDate(Date(), animated: true)
             self.addExpenseButton.setTitle("Add Expense", for: .normal)
+        }
+    }
+    
+    func updateViewsForTimeFrame() {
+        if timeFrameSegmentedControl.selectedSegmentIndex == 0 {
+            UIView.animate(withDuration: 0.3) {
+                self.customDayPicker.isHidden = true
+            }
+        } else if timeFrameSegmentedControl.selectedSegmentIndex == 1 {
+            UIView.animate(withDuration: 0.3) {
+                self.customDayPicker.isHidden = true
+            }
+        } else if timeFrameSegmentedControl.selectedSegmentIndex == 2 {
+            UIView.animate(withDuration: 0.3) {
+                self.customDayPicker.isHidden = false
+            }
         }
     }
     
@@ -269,6 +289,10 @@ extension ExpenseViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return customPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        <#code#>
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
