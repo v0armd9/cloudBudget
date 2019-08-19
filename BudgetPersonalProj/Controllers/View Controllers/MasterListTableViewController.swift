@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class MasterListTableViewController: UITableViewController {
 
@@ -31,6 +32,11 @@ class MasterListTableViewController: UITableViewController {
             }
         }
     }
+    
+    
+    func checkForiCloud(){
+        
+    }
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         presentNewBudgetAlert()
@@ -48,6 +54,7 @@ class MasterListTableViewController: UITableViewController {
         let budget = MasterBudgetController.sharedInstance.budgets[indexPath.row]
         
         cell.textLabel?.text = budget.name
+        cell.textLabel?.textColor = UIColor.mint
 
         return cell
     }

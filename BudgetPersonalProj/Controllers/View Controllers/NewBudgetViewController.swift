@@ -30,7 +30,8 @@ class NewBudgetViewController: UIViewController, CAAnimationDelegate, UITextFiel
     }
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
-        guard let name = budgetNameTextField.text else {return}
+        guard let name = budgetNameTextField.text, name != ""
+            else {presentNoNameAlert(); return}
         self.createButton.setTitle("Generating Budget", for: .normal)
         self.createButton.isEnabled = false
         
@@ -44,6 +45,9 @@ class NewBudgetViewController: UIViewController, CAAnimationDelegate, UITextFiel
         }
     }
     
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
+    }
     
     
     let gradient = CAGradientLayer()
@@ -102,13 +106,28 @@ class NewBudgetViewController: UIViewController, CAAnimationDelegate, UITextFiel
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toIncomeView" {
-            guard let destinatioVC = segue.destination as? UINavigationController,
-            let masterBudget = newBudget,
-            let incomePayperiodVC = destinatioVC.topViewController as? Income_PayPeriodViewController
-                else {return}
-            incomePayperiodVC.masterBudget = masterBudget
+            guard let destinationVC = segue.destination as? Income_PayPeriodViewController,
+            let masterBudget = newBudget
+            else {return}
+            destinationVC.masterBudget = masterBudget
         }
     }
- 
+}
 
+extension NewBudgetViewController {
+    func presentNoNameAlert() {
+        let title = NSAttributedString(string: "Please enter a name", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "Mint")!])
+        let noNameAlert = UIAlertController(title: "", message: nil, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "Ok", style: .default)
+        
+        noNameAlert.setValue(title, forKey: "attributedTitle")
+        
+        noNameAlert.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = #colorLiteral(red: 0.1721063446, green: 0.1721063446, blue: 0.1721063446, alpha: 1)
+        noNameAlert.view.backgroundColor = .clear
+        noNameAlert.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        noNameAlert.addAction(okButton)
+        
+        present(noNameAlert, animated: true)
+    }
 }

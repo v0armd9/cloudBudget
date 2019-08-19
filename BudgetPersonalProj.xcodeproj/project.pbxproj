@@ -26,6 +26,9 @@
 		2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD422F07D8900B06A9A /* IncomeController.swift */; };
 		2CF2BBD722F07D9C00B06A9A /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */; };
 		580134A62301BE320014ABFE /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580134A52301BE320014ABFE /* colors.xcassets */; };
+		589CDBCB230A5EA70000D383 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589CDBCA230A5EA70000D383 /* CustomNavigationController.swift */; };
+		589CDBCD230A6D920000D383 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589CDBCC230A6D920000D383 /* UIColorExtension.swift */; };
+		589CDBCF230A765C0000D383 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589CDBCE230A765C0000D383 /* ExpenseViewController.swift */; };
 		58BDFE2B23023B16000B605A /* NewBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BDFE2A23023B16000B605A /* NewBudgetViewController.swift */; };
 		58BDFE2D230259BE000B605A /* Income+PayPeriodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BDFE2C230259BE000B605A /* Income+PayPeriodViewController.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +56,9 @@
 		2CF2BBD422F07D8900B06A9A /* IncomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
 		2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
 		580134A52301BE320014ABFE /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
+		589CDBCA230A5EA70000D383 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		589CDBCC230A6D920000D383 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		589CDBCE230A765C0000D383 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		58BDFE2A23023B16000B605A /* NewBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetViewController.swift; sourceTree = "<group>"; };
 		58BDFE2C230259BE000B605A /* Income+PayPeriodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+PayPeriodViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +141,7 @@
 				2CF2BBD422F07D8900B06A9A /* IncomeController.swift */,
 				2CF2BBD622F07D9C00B06A9A /* ExpenseController.swift */,
 				2C6AC12922F5BC80004C98FA /* DateExtension.swift */,
+				589CDBCC230A6D920000D383 /* UIColorExtension.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -148,6 +155,8 @@
 				2C6AC12722F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift */,
 				58BDFE2A23023B16000B605A /* NewBudgetViewController.swift */,
 				58BDFE2C230259BE000B605A /* Income+PayPeriodViewController.swift */,
+				589CDBCE230A765C0000D383 /* ExpenseViewController.swift */,
+				589CDBCA230A5EA70000D383 /* CustomNavigationController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 				2C6AC12A22F5BC80004C98FA /* DateExtension.swift in Sources */,
 				2CF2BBD522F07D8900B06A9A /* IncomeController.swift in Sources */,
 				2CC871EB22E7EEBA009F90F7 /* Expense.swift in Sources */,
+				589CDBCD230A6D920000D383 /* UIColorExtension.swift in Sources */,
 				2CF2BBC422EF4FE600B06A9A /* MasterBudgetController.swift in Sources */,
 				58BDFE2B23023B16000B605A /* NewBudgetViewController.swift in Sources */,
 				2C6060CB22E7E956005BD461 /* AppDelegate.swift in Sources */,
@@ -266,6 +276,8 @@
 				2CF2BBC622EF6A7600B06A9A /* PayPeriodListTableViewController.swift in Sources */,
 				2CC871E722E7EC38009F90F7 /* PayPeriod.swift in Sources */,
 				2CF2BBC222EF4F9800B06A9A /* MasterListTableViewController.swift in Sources */,
+				589CDBCF230A765C0000D383 /* ExpenseViewController.swift in Sources */,
+				589CDBCB230A5EA70000D383 /* CustomNavigationController.swift in Sources */,
 				2C6AC12822F4CDC0004C98FA /* Income+ExpenseListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
